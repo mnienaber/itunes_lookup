@@ -21,18 +21,49 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="35M-mx-xFv">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5eA-ot-JVh"/>
+                                </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="03c-o9-n0L">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" textLabel="jdd-zl-7P4" style="IBUITableViewCellStyleDefault" id="WDM-Vp-ikV">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDM-Vp-ikV" id="cXK-s8-b5Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jdd-zl-7P4">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="03c-o9-n0L" firstAttribute="leading" secondItem="35M-mx-xFv" secondAttribute="leading" id="9xO-aZ-4zw"/>
                             <constraint firstItem="35M-mx-xFv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="S3K-hc-ig9"/>
+                            <constraint firstItem="03c-o9-n0L" firstAttribute="top" secondItem="35M-mx-xFv" secondAttribute="bottom" id="bSN-Jk-icJ"/>
                             <constraint firstAttribute="trailing" secondItem="35M-mx-xFv" secondAttribute="trailing" id="dt9-7P-pkd"/>
+                            <constraint firstItem="03c-o9-n0L" firstAttribute="trailing" secondItem="35M-mx-xFv" secondAttribute="trailing" id="eEd-Ih-1vb"/>
                             <constraint firstItem="35M-mx-xFv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h3J-E1-oes"/>
+                            <constraint firstItem="03c-o9-n0L" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="vMh-7Z-T3e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ht2-5d-HKd"/>
                     <connections>
                         <outlet property="searchBarOutlet" destination="35M-mx-xFv" id="v5Q-li-U8D"/>
+                        <outlet property="tableView" destination="03c-o9-n0L" id="4zQ-ID-wVq"/>
                     </connections>
                 </viewController>
             </objects>
