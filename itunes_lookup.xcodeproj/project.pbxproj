@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F01D64237900C6A1E3 /* BlackBox.swift */; };
+		2E2C27F31D6423A800C6A1E3 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F21D6423A800C6A1E3 /* Convenience.swift */; };
+		2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F41D6423B200C6A1E3 /* Client.swift */; };
+		2E2C27F71D6424BE00C6A1E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F61D6424BE00C6A1E3 /* Constants.swift */; };
+		2E2C27F91D644D7700C6A1E3 /* SearchResultsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F81D644D7700C6A1E3 /* SearchResultsObject.swift */; };
+		2E2C27FB1D6451C500C6A1E3 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27FA1D6451C500C6A1E3 /* TableViewController.swift */; };
 		2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBDA1D51D62C00520726 /* AppDelegate.swift */; };
 		2E2CFBDD1D51D62C00520726 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBDC1D51D62C00520726 /* ViewController.swift */; };
 		2E2CFBE01D51D62C00520726 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CFBDE1D51D62C00520726 /* Main.storyboard */; };
@@ -35,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E2C27F01D64237900C6A1E3 /* BlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
+		2E2C27F21D6423A800C6A1E3 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
+		2E2C27F41D6423B200C6A1E3 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		2E2C27F61D6424BE00C6A1E3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2E2C27F81D644D7700C6A1E3 /* SearchResultsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsObject.swift; sourceTree = "<group>"; };
+		2E2C27FA1D6451C500C6A1E3 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2E2CFBD71D51D62C00520726 /* itunes_lookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = itunes_lookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2CFBDA1D51D62C00520726 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E2CFBDC1D51D62C00520726 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				2E2CFBDA1D51D62C00520726 /* AppDelegate.swift */,
+				2E2C27F81D644D7700C6A1E3 /* SearchResultsObject.swift */,
+				2E2C27F61D6424BE00C6A1E3 /* Constants.swift */,
+				2E2C27F01D64237900C6A1E3 /* BlackBox.swift */,
+				2E2C27F41D6423B200C6A1E3 /* Client.swift */,
+				2E2C27F21D6423A800C6A1E3 /* Convenience.swift */,
+				2E2C27FA1D6451C500C6A1E3 /* TableViewController.swift */,
 				2E2CFBDC1D51D62C00520726 /* ViewController.swift */,
 				2E2CFBDE1D51D62C00520726 /* Main.storyboard */,
 				2E2CFBE41D51D62C00520726 /* Assets.xcassets */,
@@ -260,8 +278,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E2CFBDD1D51D62C00520726 /* ViewController.swift in Sources */,
+				2E2C27F31D6423A800C6A1E3 /* Convenience.swift in Sources */,
+				2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */,
+				2E2C27F91D644D7700C6A1E3 /* SearchResultsObject.swift in Sources */,
 				2E2CFBE31D51D62C00520726 /* itunes_lookup.xcdatamodeld in Sources */,
+				2E2C27F71D6424BE00C6A1E3 /* Constants.swift in Sources */,
 				2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */,
+				2E2C27FB1D6451C500C6A1E3 /* TableViewController.swift in Sources */,
+				2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +512,7 @@
 				2E2CFC041D51D62D00520726 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E2CFC051D51D62D00520726 /* Build configuration list for PBXNativeTarget "itunes_lookupTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +521,7 @@
 				2E2CFC071D51D62D00520726 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E2CFC081D51D62D00520726 /* Build configuration list for PBXNativeTarget "itunes_lookupUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +530,7 @@
 				2E2CFC0A1D51D62D00520726 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
