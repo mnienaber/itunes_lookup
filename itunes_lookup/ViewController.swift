@@ -24,6 +24,12 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBarOutlet.showsScopeBar = true
         searchBarOutlet.delegate = self
         tableView.delegate = self
+        self.tableView.reloadData()
+    }
+
+    override func viewDidAppear(animated: Bool) {
+
+        self.tableView.reloadData()
     }
 
 
@@ -52,6 +58,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         performUIUpdatesOnMain {
 
             self.testApi(query)
+            self.tableView.reloadData()
         }
 
 
