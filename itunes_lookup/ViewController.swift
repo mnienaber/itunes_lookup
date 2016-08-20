@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
@@ -47,28 +47,16 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         super.didReceiveMemoryWarning()
     }
 
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//
-//        print("this is the cell ")
-//
-//        let cellReuseIdentifier = "TableViewCell"
-//        let searchResult = Client.sharedInstance().searchResults[indexPath.row]
-//        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
-//
-//        cell.textLabel!.text = searchResult.artistName as? String
-//
-//        cell.detailTextLabel!.text = searchResult.bundleId as? String
-//        print(cell.detailTextLabel!.text)
-//
-//        self.tableView.reloadData()
-//        return cell
-//
-//    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as UITableViewCell
         let obj = Client.sharedInstance().searchResults[indexPath.row]
         cell.textLabel!.text = obj.artistName as? String
-        cell.detailTextLabel!.text = obj.appId as? String
+        cell.imageView!.image = UIImage(named: "iconplaceholder")
+        performUIUpdatesOnMain {
+
+            cell.imageView!.downloadImageFrom(link: obj.artworkUrl60 as! String, contentMode: UIViewContentMode.ScaleAspectFit)
+            self.tableView.reloadData()
+        }
         return cell
     }
 
@@ -88,7 +76,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     }
 
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;
+        searchActive = true;e
     }
 
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {

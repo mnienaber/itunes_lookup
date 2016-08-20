@@ -30,6 +30,11 @@ extension Client {
             static let currency = "currency"
             static let languageCodesISO2A = "languageCodesISO2A"
             static let FormattedPrice = "formattedPrice"
+            static let CurrentVersionReleaseDate = "currentVersionReleaseDate"
+            static let ArtworkUrl60 = "artworkUrl60"
+//            static let AverageUserRating = "averageUserRating"
+//            static let UserRatingCount = "userRatingCount"
+            static let Version = "version"
         }
     }
 }

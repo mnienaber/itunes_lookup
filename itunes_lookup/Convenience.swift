@@ -17,7 +17,6 @@ extension Client {
 
         taskForGETMethod(url, query: query) { results, error in
 
-            print("these are the results")
             if let error = error {
 
                 print(error)
@@ -36,4 +35,30 @@ extension Client {
             }
         }
     }
+
+    
+
+
+//    func getDataFromUrl(url: NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError? ) -> Void)) {
+//
+//        let task = NSURLSession.sharedSession().dataTaskWithRequest(url) {
+//            (data, response, error) in
+//            completion(data: data, response: response, error: error)
+//            }
+//            task.resume()
+//    }
+//
+//    func downloadImage(url: NSURL) -> UIImage {
+//        print("Download Started")
+//        getDataFromUrl(url) { (data, response, error)  in
+//            guard let data = data where error == nil else { return }
+//
+//            performUIUpdatesOnMain {
+//
+//                self.imageView.image = UIImage(data: data)
+//            }
+//
+//            }
+//        }
+//    }
 }

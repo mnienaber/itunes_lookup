@@ -21,6 +21,11 @@ struct SearchResultsDict {
     let currency: AnyObject
     let languageCodesISO2A: [AnyObject]
     let formattedPrice: AnyObject
+    let currentVersionReleaseDate: AnyObject
+//    let averageUserRating: AnyObject
+    let artworkUrl60: AnyObject
+    let version: AnyObject
+//    let userRatingCount: AnyObject
 
     init?(dictionary: [String: AnyObject]) {
 
@@ -31,6 +36,12 @@ struct SearchResultsDict {
         currency = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!)!
         languageCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! [AnyObject]!)!
         formattedPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!)!
+        currentVersionReleaseDate = (dictionary[Client.Constants.SearchResults.CurrentVersionReleaseDate] as AnyObject!)!
+//        guard let avg =  = (dictionary[Client.Constants.SearchResults.AverageUserRating] as? AnyObject) else { return nil }
+//        averageUserRating = avg
+        artworkUrl60 = (dictionary[Client.Constants.SearchResults.ArtworkUrl60] as AnyObject!)!
+        version = (dictionary[Client.Constants.SearchResults.Version] as AnyObject!)!
+        //userRatingCount = (dictionary[Client.Constants.SearchResults.UserRatingCount] as AnyObject!)!
 
     }
 
