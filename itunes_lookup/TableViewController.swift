@@ -34,8 +34,8 @@ class TableViewController: UITableViewController {
         let searchResult = Client.sharedInstance().searchResults[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
 
-        cell.textLabel!.text = searchResult.artistName
-        cell.detailTextLabel!.text = searchResult.bundleId
+        cell.textLabel!.text = searchResult.artistName as! String
+        //cell.detailTextLabel!.text = searchResult.bundleId
         print(searchResult.bundleId)
 
         return cell
