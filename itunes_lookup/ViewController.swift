@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource,  UISearchDisplayDelegate {
+
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -19,8 +20,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchBar.showsScopeBar = true
+
         searchBar.delegate = self
+        searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -31,16 +33,41 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         self.tableView.reloadData()
     }
 
-    func searchBar(searchBar: UISearchBar, textDidChange query: String) {
+    func testApi(searchText: String) {
 
+        Client.sharedInstance().getSearchItems(searchText) { (searchResultsDict, error) in
 
-        print(query)
+            if error != nil {
 
+                performUIUpdatesOnMain {
 
-        performUIUpdatesOnMain {
+                    print(error)
+                }
 
-            self.testApi(query)
+            } else {
+
+                performUIUpdatesOnMain {
+
+                    for _ in Client.sharedInstance().searchResults {
+
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            self.tableView.reloadData()
+                        })
+                        
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+            }
         }
+    }
+
+    func searchBar(searchBar: UISearchBar!) {
+
+
+        let searchText = searchBar.text!
+        print(searchText)
+        testApi(searchText)
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,51 +102,25 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         //let url = location.bundleId
     }
 
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-        searchActive = true;e
-    }
+//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+//        searchActive = true;e
+//    }
+//
+//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+//        searchActive = false;
+//    }
+//
+//    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+//        searchActive = false;
+//    }
+//
+//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+//        searchActive = false;
+//    }
 
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchActive = false;
-    }
 
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        searchActive = false;
-    }
-
-    func testApi(query: String) {
-
-        Client.sharedInstance().getSearchItems(query) { (searchResultsDict, error) in
-
-            if error != nil {
-
-                performUIUpdatesOnMain {
-
-                    print(error)
-                }
-
-            } else {
-
-                performUIUpdatesOnMain {
-
-                    for _ in Client.sharedInstance().searchResults {
-
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.tableView.reloadData()
-                        })
-
-                    }
-
-                    self.tableView.reloadData()
-                }
-            }
-        }
 }
-}
+
 
 
 
