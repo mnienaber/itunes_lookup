@@ -62,38 +62,23 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
     }
 
-    func searchBar(searchBar: UISearchBar!) {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
+        print(Client.sharedInstance().searchResults.count)
 
-        let searchText = searchBar.text!
-        print(searchText)
-        testApi(searchText)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        return Client.sharedInstance().searchResults.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
         let obj = Client.sharedInstance().searchResults[indexPath.row]
         cell.textLabel!.text = obj.artistName as? String
-        cell.imageView!.image = UIImage(named: "iconplaceholder")
-        performUIUpdatesOnMain {
-
-            cell.imageView!.downloadImageFrom(link: obj.artworkUrl60 as! String, contentMode: UIViewContentMode.ScaleAspectFit)
-            self.tableView.reloadData()
-        }
         return cell
+
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
-    }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return Client.sharedInstance().searchResults.count
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -102,22 +87,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         //let url = location.bundleId
     }
 
-//    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-//        searchActive = true;e
-//    }
-//
-//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-//        searchActive = false;
-//    }
-//
-//    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-//        searchActive = false;
-//    }
-//
-//    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-//        searchActive = false;
-//    }
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 
+        searchBar.resignFirstResponder()
+        let searchText = searchBar.text!
+        testApi(searchText)
+
+    }
+
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+    }
 
 }
 

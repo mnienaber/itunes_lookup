@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="03c-o9-n0L" id="UL1-wW-5jE"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gw5-Xh-fJu"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="03c-o9-n0L">
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WDM-Vp-ikV" id="cXK-s8-b5Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jdd-zl-7P4">
@@ -48,8 +48,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5g8-5h-CIU"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PpT-A7-D8K"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="vCg-wT-J7u"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cAQ-3J-HBm"/>
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rFj-dE-gVX">
@@ -67,7 +67,9 @@
                             <constraint firstItem="03c-o9-n0L" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="vMh-7Z-T3e"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="SEARCH" id="ht2-5d-HKd"/>
+                    <navigationItem key="navigationItem" title="SEARCH" id="ht2-5d-HKd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="3YQ-jE-3Js"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="iconImage" destination="rFj-dE-gVX" id="3tC-PP-Ngu"/>
                         <outlet property="searchBar" destination="35M-mx-xFv" id="umd-7s-D0f"/>
