@@ -86,7 +86,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         let controller = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController")
-        controller.se = Client.sharedInstance().searchResults[indexPath.row]
+        //controller.se = Client.sharedInstance().searchResults[indexPath.row]
         navigationController!.pushViewController(controller, animated: true)
     }
 
