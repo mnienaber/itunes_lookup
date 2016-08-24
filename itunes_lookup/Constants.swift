@@ -17,7 +17,7 @@ extension Client {
 
             static let SearchMethod = "https://itunes.apple.com/search?term="
             static let LookUpMethod = "https://itunes.apple.com/lookup?id="
-            static let limitAndApp = "&limit=25&entity=software"
+            static let limitAndApp = "&&entity=software"
         }
 
         struct SearchResults {

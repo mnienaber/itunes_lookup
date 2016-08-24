@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource,  UISearchDisplayDelegate {
+class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
+    var appDelegate: AppDelegate!
     var searchActive: Bool = false
     var data = Client.sharedInstance().searchResults
     var filtered = Client.sharedInstance().searchResults
@@ -25,6 +26,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -83,8 +85,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let location = Client.sharedInstance().searchResults[indexPath.row]
-        //let url = location.bundleId
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController")
+        controller.se = Client.sharedInstance().searchResults[indexPath.row]
+        navigationController!.pushViewController(controller, animated: true)
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {

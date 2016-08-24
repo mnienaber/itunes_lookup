@@ -27,7 +27,7 @@ struct SearchResultsDict {
     let version: AnyObject
 //    let userRatingCount: AnyObject
 
-    init?(dictionary: [String: AnyObject]) {
+    init(dictionary: [String: AnyObject]) {
 
         artistName = (dictionary[Client.Constants.SearchResults.ArtistName] as AnyObject!)!
         bundleId = (dictionary[Client.Constants.SearchResults.BundleId] as AnyObject!)!
@@ -49,10 +49,7 @@ struct SearchResultsDict {
 
         for result in results {
 
-            if let studObjects = SearchResultsDict(dictionary: result) {
-
-                searchResultsObjects.append(studObjects)
-            }
+            searchResultsObjects.append(SearchResultsDict(dictionary: result))
         }
         return searchResultsObjects
     }
