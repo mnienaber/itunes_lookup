@@ -38,7 +38,7 @@ class DetailViewController: UIViewController {
         if let searchResults = searchObject {
 
             //artistNameText.text = searchResults.artistName as! String
-            artistNameText.text = "fucker"
+            artistNameText.text = "tester"
             bundleIdText.text = searchResults.bundleId as! String
             appIdText.text = searchResults.appId as! String
             releaseDateText.text = searchResults.releaseDate as! String
