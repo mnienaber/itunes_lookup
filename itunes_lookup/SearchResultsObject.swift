@@ -34,7 +34,7 @@ struct SearchResultsDict {
         appId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!)!
         releaseDate = (dictionary[Client.Constants.SearchResults.ReleaseDate] as AnyObject!)!
         currency = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!)!
-        languageCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! [AnyObject]!)!
+        languageCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! [AnyObject]!)
         formattedPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!)!
         currentVersionReleaseDate = (dictionary[Client.Constants.SearchResults.CurrentVersionReleaseDate] as AnyObject!)!
 //        guard let avg =  = (dictionary[Client.Constants.SearchResults.AverageUserRating] as? AnyObject) else { return nil }

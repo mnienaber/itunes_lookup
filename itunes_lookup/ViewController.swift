@@ -16,8 +16,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     var appDelegate: AppDelegate!
     var searchActive: Bool = false
-    var data = Client.sharedInstance().searchResults
-    var filtered = Client.sharedInstance().searchResults
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,16 +83,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController")
-        //controller.se = Client.sharedInstance().searchResults[indexPath.row]
+        var controller = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        controller.searchObject = Client.sharedInstance().searchResults[indexPath.row]
         navigationController!.pushViewController(controller, animated: true)
     }
 
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
 
+        Client.sharedInstance().searchResults = []
         searchBar.resignFirstResponder()
+
         let searchText = searchBar.text!
         testApi(searchText)
+        self.tableView.reloadData()
 
     }
 
