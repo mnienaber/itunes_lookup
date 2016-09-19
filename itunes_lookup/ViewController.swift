@@ -24,16 +24,16 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
-        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         searchBar.delegate = self
         tableView.delegate = self
         self.tableView.reloadData()
     }
 
-    func testApi(searchText: String) {
+    func testApi(_ searchText: String) {
 
         Client.sharedInstance().getSearchItems(searchText) { (searchResultsDict, error) in
 
@@ -48,9 +48,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
                 performUIUpdatesOnMain {
 
-                    for _ in Client.sharedInstance().searchResults {
+                    for _ in SearchResultsStore.sharedInstance().searchResults {
 
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        DispatchQueue.main.async(execute: { () -> Void in
                             self.tableView.reloadData()
                         })
                         
@@ -62,35 +62,35 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         }
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        print(Client.sharedInstance().searchResults.count)
+        print(SearchResultsStore.sharedInstance().searchResults.count)
 
-        return Client.sharedInstance().searchResults.count
+        return SearchResultsStore.sharedInstance().searchResults.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        let obj = Client.sharedInstance().searchResults[indexPath.row]
-        cell.textLabel!.text = obj.artistName as? String
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        let obj = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
+        cell.textLabel!.text = obj.bundleId as? String
         return cell
 
     }
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        var controller = storyboard!.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
-        controller.searchObject = Client.sharedInstance().searchResults[indexPath.row]
+        let controller = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        controller.searchObject = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
         navigationController!.pushViewController(controller, animated: true)
     }
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        Client.sharedInstance().searchResults = []
+        SearchResultsStore.sharedInstance().searchResults = []
         searchBar.resignFirstResponder()
 
         let searchText = searchBar.text!
@@ -99,7 +99,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     }
 
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
         searchBar.resignFirstResponder()
         searchBar.text = ""

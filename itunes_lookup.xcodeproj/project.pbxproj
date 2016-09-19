@@ -21,6 +21,7 @@
 		2E2CFBE81D51D62C00520726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CFBE61D51D62C00520726 /* LaunchScreen.storyboard */; };
 		2E2CFBF31D51D62C00520726 /* itunes_lookupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBF21D51D62C00520726 /* itunes_lookupTests.swift */; };
 		2E2CFBFE1D51D62C00520726 /* itunes_lookupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */; };
+		2EE37D041D781545008A0BF0 /* SearchResultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		2E2CFBF91D51D62C00520726 /* itunes_lookupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itunes_lookupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunes_lookupUITests.swift; sourceTree = "<group>"; };
 		2E2CFBFF1D51D62C00520726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				2E2CFBDA1D51D62C00520726 /* AppDelegate.swift */,
 				2E2C27F81D644D7700C6A1E3 /* SearchResultsObject.swift */,
+				2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */,
 				2E2C27F61D6424BE00C6A1E3 /* Constants.swift */,
 				2E2C27F01D64237900C6A1E3 /* BlackBox.swift */,
 				2E2C27F41D6423B200C6A1E3 /* Client.swift */,
@@ -214,13 +217,16 @@
 				TargetAttributes = {
 					2E2CFBD61D51D62C00520726 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2E2CFBED1D51D62C00520726 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2E2CFBD61D51D62C00520726;
 					};
 					2E2CFBF81D51D62C00520726 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2E2CFBD61D51D62C00520726;
 					};
 				};
@@ -279,6 +285,7 @@
 			files = (
 				2E2C27FD1D6C38D700C6A1E3 /* DetailViewController.swift in Sources */,
 				2E2CFBDD1D51D62C00520726 /* ViewController.swift in Sources */,
+				2EE37D041D781545008A0BF0 /* SearchResultsStore.swift in Sources */,
 				2E2C27F31D6423A800C6A1E3 /* Convenience.swift in Sources */,
 				2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */,
 				2E2C27F91D644D7700C6A1E3 /* SearchResultsObject.swift in Sources */,
@@ -433,6 +440,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -444,6 +452,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -455,6 +464,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookupTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itunes_lookup.app/itunes_lookup";
 			};
 			name = Debug;
@@ -467,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookupTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/itunes_lookup.app/itunes_lookup";
 			};
 			name = Release;
@@ -478,6 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookupUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = itunes_lookup;
 			};
 			name = Debug;
@@ -489,6 +501,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookupUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = itunes_lookup;
 			};
 			name = Release;

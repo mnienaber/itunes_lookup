@@ -15,8 +15,9 @@ var searchResultsObjDictionary = [String: AnyObject]()
 struct SearchResultsDict {
 
     let artistName: AnyObject
+    let artistId: AnyObject
     let bundleId: AnyObject
-    let appId: AnyObject
+    let trackId: AnyObject
     let releaseDate: AnyObject
     let currency: AnyObject
     let languageCodesISO2A: [AnyObject]
@@ -25,14 +26,19 @@ struct SearchResultsDict {
 //    let averageUserRating: AnyObject
     let artworkUrl60: AnyObject
     let version: AnyObject
+    let trackName: AnyObject
+
 //    let userRatingCount: AnyObject
+
 
     init(dictionary: [String: AnyObject]) {
 
         artistName = (dictionary[Client.Constants.SearchResults.ArtistName] as AnyObject!)!
+        artistId = (dictionary[Client.Constants.SearchResults.ArtistId] as AnyObject!)!
         bundleId = (dictionary[Client.Constants.SearchResults.BundleId] as AnyObject!)!
-        appId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!)!
+        trackId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!)!
         releaseDate = (dictionary[Client.Constants.SearchResults.ReleaseDate] as AnyObject!)!
+//        releaseNotes
         currency = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!)!
         languageCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! [AnyObject]!)
         formattedPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!)!
@@ -41,11 +47,19 @@ struct SearchResultsDict {
 //        averageUserRating = avg
         artworkUrl60 = (dictionary[Client.Constants.SearchResults.ArtworkUrl60] as AnyObject!)!
         version = (dictionary[Client.Constants.SearchResults.Version] as AnyObject!)!
+        trackName = (dictionary[Client.Constants.SearchResults.TrackName] as AnyObject!)!
+//        trackViewUrl
+//        userRatingCount
+//        userRatingCountForCurrentVersion
+//        description
+//        minimumOsVersion
+//        primaryGenreName
+
         //userRatingCount = (dictionary[Client.Constants.SearchResults.UserRatingCount] as AnyObject!)!
 
     }
 
-    static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {
+    static func SLOFromResults(_ results: [[String:AnyObject]]) -> [SearchResultsDict] {
 
         for result in results {
 

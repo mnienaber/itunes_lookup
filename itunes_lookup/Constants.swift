@@ -23,6 +23,7 @@ extension Client {
         struct SearchResults {
 
             static let ArtistName = "artistName"
+            static let ArtistId = "artistId"
             static let BundleId = "bundleId"
             static let TrackId = "trackId"
             static let ReleaseDate = "releaseDate"
@@ -35,6 +36,12 @@ extension Client {
 //            static let AverageUserRating = "averageUserRating"
 //            static let UserRatingCount = "userRatingCount"
             static let Version = "version"
+            //        trackViewUrl
+            //        userRatingCount
+            //        userRatingCountForCurrentVersion
+            //        description
+            //        minimumOsVersion
+            //        primaryGenreName
         }
     }
 }

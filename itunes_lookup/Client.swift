@@ -11,25 +11,25 @@ import UIKit
 
 class Client : NSObject {
     
-    var session = NSURLSession.sharedSession()
+    var session = URLSession.shared
     var appDelegate: AppDelegate!
-    var searchResults = searchResultsObjects
+    
     
     override init() {
         super.init()
     }
 
-    func taskForGETMethod(urlString: String, query: String, completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(_ urlString: String, query: String, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
-        let url = NSURL(string: urlString)
-        let request = NSMutableURLRequest(URL: url!)
+        let url = URL(string: urlString)
+        let request = URLRequest(url: url!)
 
-        let task = session.dataTaskWithRequest(request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             
-            func sendError(error: String) {
+            func sendError(_ error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForGET(result: nil, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
             }
             
             guard (error == nil) else {
@@ -37,7 +37,7 @@ class Client : NSObject {
                 return
             }
             
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
                 sendError("Your request returned a status code other than 2xx!")
                 return
             }
@@ -54,18 +54,18 @@ class Client : NSObject {
         
     }
 
-private func convertDataWithCompletionHandler(data: NSData, completionHandlerForConvertData: (result: AnyObject!, error: NSError?) -> Void) {
+fileprivate func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
 
-        var parsedResult: AnyObject!
+        var parsedResult: Any!
         do {
-            parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
             print(parsedResult!)
         } catch {
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-            completionHandlerForConvertData(result: nil, error: NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
         
-        completionHandlerForConvertData(result: parsedResult, error: nil)
+        completionHandlerForConvertData(parsedResult as AnyObject?, nil)
     }
 }
 
@@ -83,10 +83,10 @@ extension Client {
 
 extension UIImageView {
 
-    func downloadImageFrom(link link:String, contentMode: UIViewContentMode) {
-        NSURLSession.sharedSession().dataTaskWithURL( NSURL(string:link)!, completionHandler: {
+    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
+        URLSession.shared.dataTask( with: URL(string:link)!, completionHandler: {
             (data, response, error) -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.contentMode =  contentMode
                 if let data = data { self.image = UIImage(data: data) }
             }
