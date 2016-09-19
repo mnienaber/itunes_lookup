@@ -33,15 +33,18 @@ extension Client {
             static let FormattedPrice = "formattedPrice"
             static let CurrentVersionReleaseDate = "currentVersionReleaseDate"
             static let ArtworkUrl60 = "artworkUrl60"
-//            static let AverageUserRating = "averageUserRating"
-//            static let UserRatingCount = "userRatingCount"
+            static let MinimumOsVersion = "minimumOsVersion"
+            static let PrimaryGenreName = "primaryGenreName"
+            static let Description = "description"
+            static let UserRatingCount = "userRatingCount"
             static let Version = "version"
-            //        trackViewUrl
-            //        userRatingCount
-            //        userRatingCountForCurrentVersion
-            //        description
-            //        minimumOsVersion
-            //        primaryGenreName
+            static let UserRatingCountForCurrentVersion = "userRatingCountForCurrentVersion"
+            static let FileSizeBytes = "fileSizeBytes"
+            static let SupportedDevices = "supportedDevices"
+
+
+
+
         }
     }
 }
