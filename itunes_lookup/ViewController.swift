@@ -48,7 +48,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
                 performUIUpdatesOnMain {
 
-                    for _ in SearchResultsStore.sharedInstance().searchResults {
+                    for entry in SearchResultsStore.sharedInstance().searchResults {
+
+                        print(entry)
 
                         DispatchQueue.main.async(execute: { () -> Void in
                             self.tableView.reloadData()
@@ -90,7 +92,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        SearchResultsStore.sharedInstance().searchResults = []
+        //SearchResultsStore.sharedInstance().searchResults = []
         searchBar.resignFirstResponder()
 
         let searchText = searchBar.text!

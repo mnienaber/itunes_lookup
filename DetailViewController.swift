@@ -30,6 +30,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var userRatingCount: UITextField!
     @IBOutlet weak var fileSizeBytes: UITextField!
     @IBOutlet weak var supportedDevices: UITextField!
+    @IBOutlet weak var artistID: UITextField!
+    @IBOutlet weak var descripTion: UITextField!
 
 
     override func viewDidLoad() {
@@ -47,7 +49,7 @@ class DetailViewController: UIViewController {
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
             trackIdText.text = object.trackId as? String
-            //artistID.text = object.artistId as? AnyObject
+            //artistID.text = object.artistId as? String
             releaseDateText.text = object.releaseDate as? String
             currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
             languageCodesISO2A.text = object.languageCodesISO2A as? String
@@ -59,6 +61,7 @@ class DetailViewController: UIViewController {
             userRatingCountForCurrentVersion.text = object.userRatingCountForCurrentVersion as? String
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices as? String
+            descripTion.text = object.description as? String
             
         }
     }

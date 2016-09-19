@@ -217,6 +217,7 @@
 				TargetAttributes = {
 					2E2CFBD61D51D62C00520726 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZXKDF4ZF72;
 						LastSwiftMigration = 0800;
 					};
 					2E2CFBED1D51D62C00520726 = {
@@ -436,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZXKDF4ZF72;
 				INFOPLIST_FILE = itunes_lookup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";
@@ -448,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZXKDF4ZF72;
 				INFOPLIST_FILE = itunes_lookup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";

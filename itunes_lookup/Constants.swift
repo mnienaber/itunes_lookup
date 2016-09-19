@@ -41,10 +41,6 @@ extension Client {
             static let UserRatingCountForCurrentVersion = "userRatingCountForCurrentVersion"
             static let FileSizeBytes = "fileSizeBytes"
             static let SupportedDevices = "supportedDevices"
-
-
-
-
         }
     }
 }

@@ -15,7 +15,7 @@ var searchResultsObjDictionary = [String: AnyObject]()
 struct SearchResultsDict {
 
     let artistName: AnyObject
-    let artistId: AnyObject
+    //let artistId: AnyObject
     let bundleId: AnyObject
     let trackId: AnyObject
     let releaseDate: AnyObject
@@ -23,10 +23,8 @@ struct SearchResultsDict {
     let languageCodesISO2A: [AnyObject]
     let formattedPrice: AnyObject
     let currentVersionReleaseDate: AnyObject
-//    let averageUserRating: AnyObject
     let artworkUrl60: AnyObject
     let version: AnyObject
-    //let trackName: AnyObject
     let primaryGenreName: AnyObject
     let description: AnyObject
     let minimumOsVersion: AnyObject
@@ -40,8 +38,8 @@ struct SearchResultsDict {
 
         guard let aName = (dictionary[Client.Constants.SearchResults.ArtistName] as AnyObject!) else { return nil }
         artistName = aName
-        guard let aId = (dictionary[Client.Constants.SearchResults.ArtistId] as AnyObject!) else { return nil }
-        artistId = aId
+        //guard let aId = (dictionary[Client.Constants.SearchResults.ArtistId] as? AnyObject!) else { return nil }
+        //artistId = aId
         guard let bId = (dictionary[Client.Constants.SearchResults.BundleId] as AnyObject!) else { return nil }
         bundleId = bId
         guard let tId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
@@ -80,6 +78,8 @@ struct SearchResultsDict {
     static func SLOFromResults(_ results: [[String:AnyObject]]) -> [SearchResultsDict] {
 
         for result in results {
+
+            print(result)
 
             searchResultsObjects.append(SearchResultsDict(dictionary: result)!)
         }
