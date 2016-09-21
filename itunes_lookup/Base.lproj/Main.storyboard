@@ -444,7 +444,13 @@
                             <constraint firstItem="CA0-ho-gKO" firstAttribute="top" secondItem="RW8-Ix-Rnn" secondAttribute="topMargin" id="uJP-Qf-spG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PfK-F4-7eH"/>
+                    <navigationItem key="navigationItem" id="PfK-F4-7eH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yra-Uq-5tw">
+                            <connections>
+                                <action selector="shareButton:" destination="6mT-WV-TUC" id="KyZ-I7-m1w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="1500"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1500"/>

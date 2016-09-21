@@ -35,15 +35,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func testApi(_ searchText: String) {
 
-        Client.sharedInstance().getSearchItems(searchText) { (searchResultsDict, error) in
+        let plusInsert = searchText.components(separatedBy: " ")
+        let realSearchText = plusInsert.joined(separator: "+")
+
+        print(realSearchText)
+
+        Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
 
             if error != nil {
 
-                performUIUpdatesOnMain {
+                self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
+            } else if searchResultsDict?.count == 0 {
 
-                    print(error)
-                }
-
+                self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
             } else {
 
                 if let searchResultsDict = searchResultsDict {
@@ -55,9 +59,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
                             DispatchQueue.main.async(execute: { () -> Void in
                                 self.tableView.reloadData()
                             })
-
                         }
-
                         self.tableView.reloadData()
                     }
                 }
@@ -108,6 +110,16 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.text = ""
     }
 
+}
+
+extension ViewController {
+
+    func failAlertGeneral(title: String, message: String, actionTitle: String) {
+
+        let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
+        self.present(failAlertGeneral, animated: true, completion: nil)
+    }
 }
 
 

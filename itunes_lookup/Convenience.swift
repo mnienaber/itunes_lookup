@@ -13,28 +13,54 @@ extension Client {
 
     func getSearchItems(_ query: String, completionHandlerForSearchResults: @escaping (_ result: [SearchResultsDict]?, _ error: NSError?) -> Void) {
 
-        let url = Client.Constants.Scheme.SearchMethod + query + Client.Constants.Scheme.limitAndApp   
+        if Validation.isStringNumerical(string: query) == true {
 
-        taskForGETMethod(url, query: query) { results, error in
+            let url = Client.Constants.Scheme.LookUpMethod + query
 
-            if let error = error {
+            taskForGETMethod(url, query: query) { results, error in
 
-                print(error)
-            } else {
-
-                if let results = results?["results"] as? [[String:AnyObject]] {
-
-                    SearchResultsStore.sharedInstance().searchResults = []
-
-                    let searchItems = SearchResultsDict.SLOFromResults(results: results)
-                    SearchResultsStore.sharedInstance().searchResults = searchItems
-
-                    print("these are search items \(SearchResultsStore.sharedInstance().searchResults)")
-
-                    completionHandlerForSearchResults(searchItems, nil)
-                } else {
+                if let error = error {
 
                     completionHandlerForSearchResults(nil, error)
+                } else {
+
+                    if let results = results?["results"] as? [[String:AnyObject]] {
+
+                        SearchResultsStore.sharedInstance().searchResults = []
+
+                        let searchItems = SearchResultsDict.SLOFromResults(results: results)
+                        SearchResultsStore.sharedInstance().searchResults = searchItems
+
+                        completionHandlerForSearchResults(searchItems, nil)
+                    } else {
+                        
+                        completionHandlerForSearchResults(nil, error)
+                    }
+                }
+            }
+        } else {
+
+            let url = Client.Constants.Scheme.SearchMethod + query + Client.Constants.Scheme.limitAndApp
+
+            taskForGETMethod(url, query: query) { results, error in
+
+                if let error = error {
+
+                    completionHandlerForSearchResults(nil, error)
+                } else {
+
+                    if let results = results?["results"] as? [[String:AnyObject]] {
+
+                        SearchResultsStore.sharedInstance().searchResults = []
+
+                        let searchItems = SearchResultsDict.SLOFromResults(results: results)
+                        SearchResultsStore.sharedInstance().searchResults = searchItems
+
+                        completionHandlerForSearchResults(searchItems, nil)
+                    } else {
+                        
+                        completionHandlerForSearchResults(nil, error)
+                    }
                 }
             }
         }

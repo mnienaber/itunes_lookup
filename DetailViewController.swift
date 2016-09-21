@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
 
     var appDelegate: AppDelegate!
     var searchObject: SearchResultsDict?
+    var shareableObject = [SearchResultsDict]()
 
     @IBOutlet weak var artistNameText: UITextField!
     @IBOutlet weak var bundleIdText: UITextField!
@@ -46,6 +47,8 @@ class DetailViewController: UIViewController {
 
         if let object = searchObject {
 
+            shareableObject = [object]
+
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
             trackIdText.text = object.trackId as? String
@@ -66,4 +69,12 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func shareButton(_ sender: AnyObject) {
+
+        print("thisis \(shareableObject) this is the end")
+
+
+        let activityView = UIActivityViewController(activityItems: shareableObject, applicationActivities: nil)
+        self.present(activityView, animated: true, completion: nil)
+    }
 }
