@@ -61,7 +61,7 @@ class DetailViewController: UIViewController {
             userRatingCountForCurrentVersion.text = object.userRatingCountForCurrentVersion as? String
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices as? String
-            descripTion.text = object.description as? String
+            //descripTion.text = object.description as? String
             
         }
     }

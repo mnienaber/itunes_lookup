@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-var searchResultsObjects = [SearchResultsDict]()
-var searchResultsObjDictionary = [String: AnyObject]()
+//var searchResultsObjects = [SearchResultsDict]()
+//var searchResultsObjDictionary = [String: AnyObject]()
 
 struct SearchResultsDict {
 
@@ -72,17 +72,17 @@ struct SearchResultsDict {
         fileSizeBytes = fSizeBytes
         guard let sDevices = (dictionary[Client.Constants.SearchResults.SupportedDevices] as AnyObject!) else { return nil }
         supportedDevices = sDevices
-
     }
 
-    static func SLOFromResults(_ results: [[String:AnyObject]]) -> [SearchResultsDict] {
+    static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {
 
         for result in results {
 
-            print(result)
+            if let searchObjects = SearchResultsDict(dictionary: result) {
 
-            searchResultsObjects.append(SearchResultsDict(dictionary: result)!)
+                SearchResultsStore.sharedInstance().searchResults.append(searchObjects)
+            }
         }
-        return searchResultsObjects
+        return SearchResultsStore.sharedInstance().searchResults
     }
 }

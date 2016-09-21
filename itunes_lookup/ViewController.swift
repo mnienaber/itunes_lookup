@@ -46,19 +46,20 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
             } else {
 
-                performUIUpdatesOnMain {
+                if let searchResultsDict = searchResultsDict {
 
-                    for entry in SearchResultsStore.sharedInstance().searchResults {
+                    performUIUpdatesOnMain {
 
-                        print(entry)
+                        for _ in SearchResultsStore.sharedInstance().searchResults {
 
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            self.tableView.reloadData()
-                        })
-                        
+                            DispatchQueue.main.async(execute: { () -> Void in
+                                self.tableView.reloadData()
+                            })
+
+                        }
+
+                        self.tableView.reloadData()
                     }
-                    
-                    self.tableView.reloadData()
                 }
             }
         }
@@ -92,7 +93,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        //SearchResultsStore.sharedInstance().searchResults = []
+        SearchResultsStore.sharedInstance().searchResults = []
         searchBar.resignFirstResponder()
 
         let searchText = searchBar.text!
