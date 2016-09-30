@@ -49,6 +49,21 @@ class DetailViewController: UIViewController {
 
             shareableObject = [object]
 
+            artistNameText.isEnabled = false
+            bundleIdText.isEnabled = false
+            trackIdText.isEnabled = false
+            releaseDateText.isEnabled = false
+            currentVersionReleaseDateText.isEnabled = false
+            languageCodesISO2A.isEnabled = false
+            formattedPriceText.isEnabled = false
+            currencyText.isEnabled = false
+            versionText.isEnabled = false
+            minimumOsVersion.isEnabled = false
+            primaryGenreName.isEnabled = false
+            userRatingCountForCurrentVersion.isEnabled = false
+            fileSizeBytes.isEnabled = false
+            supportedDevices.isEnabled = false
+
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
             trackIdText.text = object.trackId as? String
