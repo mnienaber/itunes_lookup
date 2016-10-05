@@ -15,52 +15,45 @@ import UIKit
 struct SearchResultsDict {
 
     let artistName: AnyObject
-    //let artistId: AnyObject
     let bundleId: AnyObject
     let trackId: AnyObject
-    let releaseDate: AnyObject
-    let currency: AnyObject
-    let languageCodesISO2A: [AnyObject]
-    let formattedPrice: AnyObject
-    let currentVersionReleaseDate: AnyObject
-    let artworkUrl60: AnyObject
     let version: AnyObject
+    let releaseDate: AnyObject
+    let currentVersionReleaseDate: AnyObject
+    let languageCodesISO2A: AnyObject
+    let currency: AnyObject
     let primaryGenreName: AnyObject
-    let description: AnyObject
     let minimumOsVersion: AnyObject
-    let userRatingCountForCurrentVersion: AnyObject
+    let userRatingCountForCurrentVersion: Int
     let userRatingCount: AnyObject
     let fileSizeBytes: AnyObject
     let supportedDevices: AnyObject
-
+    let formattedPrice: AnyObject
+    let description: AnyObject
 
     init?(dictionary: [String: AnyObject]) {
 
         guard let aName = (dictionary[Client.Constants.SearchResults.ArtistName] as AnyObject!) else { return nil }
         artistName = aName
-        //guard let aId = (dictionary[Client.Constants.SearchResults.ArtistId] as? AnyObject!) else { return nil }
-        //artistId = aId
         guard let bId = (dictionary[Client.Constants.SearchResults.BundleId] as AnyObject!) else { return nil }
         bundleId = bId
-        guard let tId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
-        trackId = tId
+        guard let trId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
+        trackId = trId
         guard let rDate = (dictionary[Client.Constants.SearchResults.ReleaseDate] as AnyObject!) else { return nil }
         releaseDate = rDate
         guard let c = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!) else { return nil }
         currency = c
-        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! [AnyObject]!) else { return nil }
+        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as AnyObject!) else { return nil }
         languageCodesISO2A = lCodesISO2A
         guard let fPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!) else { return nil }
         formattedPrice = fPrice
         guard let cVersionReleaseDate = (dictionary[Client.Constants.SearchResults.CurrentVersionReleaseDate] as AnyObject!) else { return nil }
         currentVersionReleaseDate = cVersionReleaseDate
-        guard let aUrl60 = (dictionary[Client.Constants.SearchResults.ArtworkUrl60] as AnyObject!) else { return nil }
-        artworkUrl60 = aUrl60
         guard let v = (dictionary[Client.Constants.SearchResults.Version] as AnyObject!) else { return nil }
         version = v
         guard let uRatingCount = (dictionary[Client.Constants.SearchResults.UserRatingCount] as AnyObject!) else { return nil }
         userRatingCount = uRatingCount
-        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.UserRatingCountForCurrentVersion] as AnyObject!) else { return nil }
+        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.UserRatingCountForCurrentVersion] as! Int!) else { return nil }
         userRatingCountForCurrentVersion = uRatingCountForCurrentVersion
         guard let mOsVersion = (dictionary[Client.Constants.SearchResults.MinimumOsVersion] as AnyObject!) else { return nil }
         minimumOsVersion = mOsVersion

@@ -23,7 +23,6 @@ extension Client {
         struct SearchResults {
 
             static let ArtistName = "artistName"
-            static let ArtistId = "artistId"
             static let BundleId = "bundleId"
             static let TrackId = "trackId"
             static let ReleaseDate = "releaseDate"

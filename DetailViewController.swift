@@ -15,6 +15,7 @@ class DetailViewController: UIViewController {
     var searchObject: SearchResultsDict?
     var shareableObject = [SearchResultsDict]()
 
+    @IBOutlet weak var devLabel: UILabel!
     @IBOutlet weak var artistNameText: UITextField!
     @IBOutlet weak var bundleIdText: UITextField!
     @IBOutlet weak var trackIdText: UITextField!
@@ -31,16 +32,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var userRatingCount: UITextField!
     @IBOutlet weak var fileSizeBytes: UITextField!
     @IBOutlet weak var supportedDevices: UITextField!
-    @IBOutlet weak var artistID: UITextField!
     @IBOutlet weak var descripTion: UITextField!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-
-
+        devLabel.GMDIcon = GMDType.GMDPublic
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,44 +50,51 @@ class DetailViewController: UIViewController {
             artistNameText.isEnabled = false
             bundleIdText.isEnabled = false
             trackIdText.isEnabled = false
+            versionText.isEnabled = false
             releaseDateText.isEnabled = false
             currentVersionReleaseDateText.isEnabled = false
             languageCodesISO2A.isEnabled = false
-            formattedPriceText.isEnabled = false
             currencyText.isEnabled = false
-            versionText.isEnabled = false
-            minimumOsVersion.isEnabled = false
             primaryGenreName.isEnabled = false
+            minimumOsVersion.isEnabled = false
             userRatingCountForCurrentVersion.isEnabled = false
+            userRatingCount.isEnabled = false
             fileSizeBytes.isEnabled = false
             supportedDevices.isEnabled = false
+            formattedPriceText.isEnabled = false
+            descripTion.isEnabled = false
 
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
             trackIdText.text = object.trackId as? String
-            //artistID.text = object.artistId as? String
+            versionText.text = object.version as? String
             releaseDateText.text = object.releaseDate as? String
             currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
             languageCodesISO2A.text = object.languageCodesISO2A as? String
             formattedPriceText.text = object.formattedPrice as? String
             currencyText.text = object.currency as? String
-            versionText.text = object.version as? String
             minimumOsVersion.text = object.minimumOsVersion as? String
             primaryGenreName.text = object.primaryGenreName as? String
             userRatingCountForCurrentVersion.text = object.userRatingCountForCurrentVersion as? String
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices as? String
-            //descripTion.text = object.description as? String
-            
+            descripTion.text = object.description as? String
+
+            print(shareableObject)
+            print(object.trackId)
+            print(object.languageCodesISO2A)
+            //print(object.languageCodesISO2A.firstIndex)
+
+
         }
     }
 
     @IBAction func shareButton(_ sender: AnyObject) {
 
-        print("thisis \(shareableObject) this is the end")
+        let shareDict = shareableObject
 
-
-        let activityView = UIActivityViewController(activityItems: shareableObject, applicationActivities: nil)
+        let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)
+
     }
 }

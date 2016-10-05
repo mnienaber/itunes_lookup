@@ -17,7 +17,7 @@ extension Client {
 
             let url = Client.Constants.Scheme.LookUpMethod + query
 
-            taskForGETMethod(url, query: query) { results, error in
+            taskForGETMethod(urlString: url, query: query) { results, error in
 
                 if let error = error {
 
@@ -26,10 +26,7 @@ extension Client {
 
                     if let results = results?["results"] as? [[String:AnyObject]] {
 
-                        SearchResultsStore.sharedInstance().searchResults = []
-
                         let searchItems = SearchResultsDict.SLOFromResults(results: results)
-                        SearchResultsStore.sharedInstance().searchResults = searchItems
 
                         completionHandlerForSearchResults(searchItems, nil)
                     } else {
@@ -42,7 +39,7 @@ extension Client {
 
             let url = Client.Constants.Scheme.SearchMethod + query + Client.Constants.Scheme.limitAndApp
 
-            taskForGETMethod(url, query: query) { results, error in
+            taskForGETMethod(urlString: url, query: query) { results, error in
 
                 if let error = error {
 
@@ -51,10 +48,7 @@ extension Client {
 
                     if let results = results?["results"] as? [[String:AnyObject]] {
 
-                        SearchResultsStore.sharedInstance().searchResults = []
-
                         let searchItems = SearchResultsDict.SLOFromResults(results: results)
-                        SearchResultsStore.sharedInstance().searchResults = searchItems
 
                         completionHandlerForSearchResults(searchItems, nil)
                     } else {

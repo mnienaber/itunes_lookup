@@ -66,6 +66,7 @@
 		2E2CFBF91D51D62C00520726 /* itunes_lookupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = itunes_lookupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunes_lookupUITests.swift; sourceTree = "<group>"; };
 		2E2CFBFF1D51D62C00520726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E2E85F61DA38B610074A70C /* libnfshared.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnfshared.tbd; path = usr/lib/libnfshared.tbd; sourceTree = SDKROOT; };
 		2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +134,7 @@
 				2E2CFBF11D51D62C00520726 /* itunes_lookupTests */,
 				2E2CFBFC1D51D62C00520726 /* itunes_lookupUITests */,
 				2E2CFBD81D51D62C00520726 /* Products */,
+				2E2E85F51DA38B610074A70C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +179,14 @@
 				2E2CFBFF1D51D62C00520726 /* Info.plist */,
 			);
 			path = itunes_lookupUITests;
+			sourceTree = "<group>";
+		};
+		2E2E85F51DA38B610074A70C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E2E85F61DA38B610074A70C /* libnfshared.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

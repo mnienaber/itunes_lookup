@@ -19,7 +19,7 @@ class Client : NSObject {
         super.init()
     }
 
-    func taskForGETMethod(_ urlString: String, query: String, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForGETMethod(urlString: String, query: String, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
         let url = URL(string: urlString)
         let request = URLRequest(url: url!)
@@ -63,7 +63,6 @@ fileprivate func convertDataWithCompletionHandler(_ data: Data, completionHandle
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
             completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
         }
-        
         completionHandlerForConvertData(parsedResult as AnyObject?, nil)
     }
 }
@@ -79,16 +78,16 @@ extension Client {
 
     
 }
-
-extension UIImageView {
-
-    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-        URLSession.shared.dataTask( with: URL(string:link)!, completionHandler: {
-            (data, response, error) -> Void in
-            DispatchQueue.main.async {
-                self.contentMode =  contentMode
-                if let data = data { self.image = UIImage(data: data) }
-            }
-        }).resume()
-    }
-}
+//
+//extension UIImageView {
+//
+//    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
+//        URLSession.shared.dataTask( with: URL(string:link)!, completionHandler: {
+//            (data, response, error) -> Void in
+//            DispatchQueue.main.async {
+//                self.contentMode =  contentMode
+//                if let data = data { self.image = UIImage(data: data) }
+//            }
+//        }).resume()
+//    }
+//}
