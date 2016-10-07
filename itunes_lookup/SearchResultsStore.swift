@@ -12,6 +12,7 @@ import UIKit
 class SearchResultsStore: UIViewController {
 
     var searchResults = [SearchResultsDict]()
+    var sharingObject = [[String: AnyObject]]()
 
     class func sharedInstance() -> SearchResultsStore {
         struct Singleton {

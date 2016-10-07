@@ -30,6 +30,7 @@ struct SearchResultsDict {
     let supportedDevices: AnyObject
     let formattedPrice: AnyObject
     let description: AnyObject
+    let trackName: AnyObject
 
     init?(dictionary: [String: AnyObject]) {
 
@@ -65,6 +66,8 @@ struct SearchResultsDict {
         fileSizeBytes = fSizeBytes
         guard let sDevices = (dictionary[Client.Constants.SearchResults.SupportedDevices] as AnyObject!) else { return nil }
         supportedDevices = sDevices
+        guard let trNm = (dictionary[Client.Constants.SearchResults.TrackName] as AnyObject!) else { return nil }
+        trackName = trNm
     }
 
     static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {

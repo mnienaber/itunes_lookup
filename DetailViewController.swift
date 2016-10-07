@@ -33,12 +33,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var fileSizeBytes: UITextField!
     @IBOutlet weak var supportedDevices: UITextField!
     @IBOutlet weak var descripTion: UITextField!
+    @IBOutlet weak var backButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        devLabel.GMDIcon = GMDType.GMDPublic
+        //devLabel.GMDIcon = GMDType.GMDPublic
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +80,7 @@ class DetailViewController: UIViewController {
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices as? String
             descripTion.text = object.description as? String
+            navigationItem.title = object.trackName as? String
 
             print(shareableObject)
             print(object.trackId)
@@ -89,9 +91,14 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func backButton(_ sender: AnyObject) {
+
+        self.navigationController?.popViewController(animated: true)
+    }
+
     @IBAction func shareButton(_ sender: AnyObject) {
 
-        let shareDict = shareableObject
+        let shareDict = SearchResultsStore.sharedInstance().searchResults
 
         let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)

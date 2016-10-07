@@ -54,7 +54,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
                     performUIUpdatesOnMain {
 
-                        for _ in searchResultsDict {
+                        for _ in SearchResultsStore.sharedInstance().searchResults {
 
                             DispatchQueue.main.async(execute: { () -> Void in
                                 self.tableView.reloadData()
@@ -75,8 +75,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
         let obj = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
-        cell.textLabel!.text = obj.bundleId as? String
-        print(SearchResultsStore.sharedInstance().searchResults.first)
+        cell.textLabel!.text = obj.trackName as? String
+
         return cell
 
 

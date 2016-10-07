@@ -412,7 +412,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PfK-F4-7eH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="yra-Uq-5tw">
+                        <barButtonItem key="leftBarButtonItem" image="Back" id="hU2-ED-OWt">
+                            <connections>
+                                <action selector="backButton:" destination="6mT-WV-TUC" id="Nmd-AI-6ea"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="share" id="yra-Uq-5tw">
                             <connections>
                                 <action selector="shareButton:" destination="6mT-WV-TUC" id="KyZ-I7-m1w"/>
                             </connections>
@@ -423,6 +428,7 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="artistNameText" destination="5tq-3a-20P" id="vaX-LH-bRO"/>
+                        <outlet property="backButton" destination="hU2-ED-OWt" id="93O-h4-jJ2"/>
                         <outlet property="bundleIdText" destination="sGG-al-gsm" id="41I-HI-LdZ"/>
                         <outlet property="currencyText" destination="aDl-AM-u5a" id="tdi-Ip-bx6"/>
                         <outlet property="currentVersionReleaseDateText" destination="MfK-zF-ntN" id="IK8-Lh-YWF"/>
@@ -482,4 +488,8 @@
             <point key="canvasLocation" x="1574" y="365"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Back" width="24" height="24"/>
+        <image name="share" width="24" height="24"/>
+    </resources>
 </document>
