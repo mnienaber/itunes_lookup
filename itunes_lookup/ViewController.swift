@@ -24,6 +24,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
+        self.searchBar.isFirstResponder
         appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
 

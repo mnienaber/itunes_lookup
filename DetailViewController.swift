@@ -34,6 +34,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var supportedDevices: UITextField!
     @IBOutlet weak var descripTion: UITextField!
     @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var placeHolder: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,7 @@ class DetailViewController: UIViewController {
             supportedDevices.isEnabled = false
             formattedPriceText.isEnabled = false
             descripTion.isEnabled = false
+            placeHolder.isEnabled = false
 
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
@@ -80,6 +82,7 @@ class DetailViewController: UIViewController {
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices as? String
             descripTion.text = object.description as? String
+            placeHolder.text = object.trackId as? String
             navigationItem.title = object.trackName as? String
 
             print(shareableObject)
