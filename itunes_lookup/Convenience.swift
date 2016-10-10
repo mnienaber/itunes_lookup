@@ -26,7 +26,7 @@ extension Client {
 
                     if let results = results?["results"] as? [[String:AnyObject]] {
 
-                        SearchResultsStore.sharedInstance().sharingObject = results
+                        //SearchResultsStore.sharedInstance().sharingObject = results
 
                         let searchItems = SearchResultsDict.SLOFromResults(results: results)
 

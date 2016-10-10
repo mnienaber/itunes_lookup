@@ -10,6 +10,8 @@
 		0C6909AD56F974AD92634279 /* Pods_itunes_lookupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAF63771F17AD2E02A36424 /* Pods_itunes_lookupTests.framework */; };
 		14D148F095903F47F7905339 /* Pods_itunes_lookup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2053B0273BFABAD18FFBD6D /* Pods_itunes_lookup.framework */; };
 		2091A887B8172C1FCA531474 /* Pods_itunes_lookupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3908439CFC046AA90E4C3E46 /* Pods_itunes_lookupUITests.framework */; };
+		2E0397911DAB206200F03ED3 /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0397901DAB206200F03ED3 /* DevViewController.swift */; };
+		2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */; };
 		2E28423F1D92486D00EF68D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28423E1D92486D00EF68D6 /* Reachability.swift */; };
 		2E2842441D9277F200EF68D6 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2842431D9277F200EF68D6 /* Validation.swift */; };
 		2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F01D64237900C6A1E3 /* BlackBox.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E0397901DAB206200F03ED3 /* DevViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
+		2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevDetailViewController.swift; sourceTree = "<group>"; };
 		2E28423E1D92486D00EF68D6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = "../../../../../Downloads/Reachability.swift-master/Reachability/Reachability.swift"; sourceTree = "<group>"; };
 		2E2842431D9277F200EF68D6 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		2E2C27F01D64237900C6A1E3 /* BlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 			children = (
 				2E2CFBDC1D51D62C00520726 /* ViewController.swift */,
 				2E2C27FC1D6C38D700C6A1E3 /* DetailViewController.swift */,
+				2E0397901DAB206200F03ED3 /* DevViewController.swift */,
+				2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -493,10 +499,12 @@
 				2E2C27F31D6423A800C6A1E3 /* Convenience.swift in Sources */,
 				2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */,
 				2E2C27F91D644D7700C6A1E3 /* SearchResultsObject.swift in Sources */,
+				2E0397911DAB206200F03ED3 /* DevViewController.swift in Sources */,
 				2E2CFBE31D51D62C00520726 /* itunes_lookup.xcdatamodeld in Sources */,
 				2E28423F1D92486D00EF68D6 /* Reachability.swift in Sources */,
 				2E2C27F71D6424BE00C6A1E3 /* Constants.swift in Sources */,
 				2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */,
+				2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */,
 				2E2842441D9277F200EF68D6 /* Validation.swift in Sources */,
 				2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */,
 			);

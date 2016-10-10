@@ -24,7 +24,7 @@ struct SearchResultsDict {
     let currency: AnyObject
     let primaryGenreName: AnyObject
     let minimumOsVersion: AnyObject
-    let userRatingCountForCurrentVersion: Int
+    let userRatingCountForCurrentVersion: AnyObject
     let userRatingCount: AnyObject
     let fileSizeBytes: AnyObject
     let supportedDevices: AnyObject
@@ -38,13 +38,12 @@ struct SearchResultsDict {
         artistName = aName
         guard let bId = (dictionary[Client.Constants.SearchResults.BundleId] as AnyObject!) else { return nil }
         bundleId = bId
-        guard let trId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
-        trackId = trId
+
         guard let rDate = (dictionary[Client.Constants.SearchResults.ReleaseDate] as AnyObject!) else { return nil }
         releaseDate = rDate
         guard let c = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!) else { return nil }
         currency = c
-        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as AnyObject!) else { return nil }
+        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! AnyObject!) else { return nil }
         languageCodesISO2A = lCodesISO2A
         guard let fPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!) else { return nil }
         formattedPrice = fPrice
@@ -54,7 +53,7 @@ struct SearchResultsDict {
         version = v
         guard let uRatingCount = (dictionary[Client.Constants.SearchResults.UserRatingCount] as AnyObject!) else { return nil }
         userRatingCount = uRatingCount
-        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.UserRatingCountForCurrentVersion] as! Int!) else { return nil }
+        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.UserRatingCountForCurrentVersion] as AnyObject!) else { return nil }
         userRatingCountForCurrentVersion = uRatingCountForCurrentVersion
         guard let mOsVersion = (dictionary[Client.Constants.SearchResults.MinimumOsVersion] as AnyObject!) else { return nil }
         minimumOsVersion = mOsVersion
@@ -68,6 +67,8 @@ struct SearchResultsDict {
         supportedDevices = sDevices
         guard let trNm = (dictionary[Client.Constants.SearchResults.TrackName] as AnyObject!) else { return nil }
         trackName = trNm
+        guard let trId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
+        trackId = trId
     }
 
     static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {

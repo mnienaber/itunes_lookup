@@ -1,35 +1,26 @@
 //
-//  ViewController.swift
+//  DevDetailViewController.swift
 //  itunes_lookup
 //
-//  Created by Michael Nienaber on 8/3/16.
+//  Created by Michael Nienaber on 10/10/16.
 //  Copyright © 2016 Michael Nienaber. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class DevViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var iconImage: UIImageView!
-    @IBOutlet weak var searchBar: UISearchBar!
+
     @IBOutlet weak var tableView: UITableView!
-
-    var appDelegate: AppDelegate!
-    var searchActive: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.delegate = self
-        searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
-        self.searchBar.isFirstResponder
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        searchBar.delegate = self
         tableView.delegate = self
         self.tableView.reloadData()
     }
@@ -87,31 +78,13 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let controller = storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let controller = storyboard!.instantiateViewController(withIdentifier: "DevDetailViewController") as! DetailViewController
         controller.searchObject = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
         navigationController!.pushViewController(controller, animated: true)
     }
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
-        SearchResultsStore.sharedInstance().searchResults = []
-        searchBar.resignFirstResponder()
-
-        let searchText = searchBar.text!
-        testApi(searchText)
-        self.tableView.reloadData()
-
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-
-        searchBar.resignFirstResponder()
-        searchBar.text = ""
-    }
-
 }
 
-extension ViewController {
+extension DevViewController {
 
     func failAlertGeneral(title: String, message: String, actionTitle: String) {
 
@@ -120,7 +93,4 @@ extension ViewController {
         self.present(failAlertGeneral, animated: true, completion: nil)
     }
 }
-
-
-
 

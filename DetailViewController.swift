@@ -35,6 +35,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descripTion: UITextField!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var placeHolder: UITextField!
+    @IBOutlet weak var placeHolderLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,32 +66,55 @@ class DetailViewController: UIViewController {
             supportedDevices.isEnabled = false
             formattedPriceText.isEnabled = false
             descripTion.isEnabled = false
-            placeHolder.isEnabled = false
+            //placeHolder.isEnabled = false
 
             artistNameText.text = object.artistName as? String
             bundleIdText.text = object.bundleId as? String
-            trackIdText.text = object.trackId as? String
+            trackIdText.text = object.trackId.description
             versionText.text = object.version as? String
             releaseDateText.text = object.releaseDate as? String
             currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
-            languageCodesISO2A.text = object.languageCodesISO2A as? String
+            languageCodesISO2A.text = object.languageCodesISO2A.componentsJoined(by: ", ")
             formattedPriceText.text = object.formattedPrice as? String
             currencyText.text = object.currency as? String
             minimumOsVersion.text = object.minimumOsVersion as? String
             primaryGenreName.text = object.primaryGenreName as? String
-            userRatingCountForCurrentVersion.text = object.userRatingCountForCurrentVersion as? String
+            userRatingCountForCurrentVersion.text = object.userRatingCountForCurrentVersion.description
             fileSizeBytes.text = object.fileSizeBytes as? String
-            supportedDevices.text = object.supportedDevices as? String
+            supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
             descripTion.text = object.description as? String
-            placeHolder.text = object.trackId as? String
             navigationItem.title = object.trackName as? String
+        }
+    }
+    
+    @IBAction func moreButton(_ sender: AnyObject) {
 
-            print(shareableObject)
-            print(object.trackId)
-            print(object.languageCodesISO2A)
-            //print(object.languageCodesISO2A.firstIndex)
+        let plusInsert = artistNameText.text!.components(separatedBy: " ")
+        let realSearchText = plusInsert.joined(separator: "+")
 
+        print(realSearchText)
 
+        Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
+
+            if error != nil {
+
+                self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
+            } else if searchResultsDict?.count == 0 {
+
+                self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
+            } else {
+
+                if let searchResultsDict = searchResultsDict {
+
+                    print(searchResultsDict)
+
+                    performUIUpdatesOnMain {
+
+                        let controller = self.storyboard?.instantiateViewController(withIdentifier: "DevViewController") as? DevViewController
+                        self.navigationController!.pushViewController(controller!, animated: true)
+                    }
+                }
+            }
         }
     }
 
@@ -106,5 +130,15 @@ class DetailViewController: UIViewController {
         let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
         self.present(activityView, animated: true, completion: nil)
 
+    }
+}
+
+extension DetailViewController {
+
+    func failAlertGeneral(title: String, message: String, actionTitle: String) {
+
+        let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
+        self.present(failAlertGeneral, animated: true, completion: nil)
     }
 }
