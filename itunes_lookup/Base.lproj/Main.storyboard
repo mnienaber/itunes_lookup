@@ -192,7 +192,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="84" id="jS7-Uk-ggr"/>
                                         </constraints>
-                                        <state key="normal" title="More">
+                                        <state key="normal" title="iTunes">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -283,14 +283,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hU8-B7-HEF">
-                                        <rect key="frame" x="20" y="1054" width="343" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXD-VR-bYt">
+                                        <rect key="frame" x="20" y="49" width="249" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pXD-VR-bYt">
-                                        <rect key="frame" x="20" y="49" width="249" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bpi-jh-tWV">
+                                        <rect key="frame" x="20" y="1054" width="341" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -300,6 +300,7 @@
                                     <constraint firstItem="kN7-TL-2jc" firstAttribute="leading" secondItem="C2g-Eu-oed" secondAttribute="leading" id="0I5-aB-iRX"/>
                                     <constraint firstItem="CLI-4P-6ZF" firstAttribute="trailing" secondItem="yze-sn-Ncf" secondAttribute="trailing" id="0eh-Zj-iB6"/>
                                     <constraint firstItem="Y7t-fo-vHJ" firstAttribute="leading" secondItem="fmU-Ac-jvj" secondAttribute="leading" id="2GB-23-5uz"/>
+                                    <constraint firstItem="Bpi-jh-tWV" firstAttribute="top" secondItem="yze-sn-Ncf" secondAttribute="bottom" constant="8" symbolic="YES" id="2Xo-GD-KGn"/>
                                     <constraint firstItem="9RP-vI-xgC" firstAttribute="leading" secondItem="ZFC-Qs-4vm" secondAttribute="leading" id="2ap-qg-j4J"/>
                                     <constraint firstItem="pXD-VR-bYt" firstAttribute="leading" secondItem="19t-m8-zJH" secondAttribute="leading" id="2q8-Mh-eXC"/>
                                     <constraint firstItem="k31-bg-e9w" firstAttribute="leading" secondItem="BdU-oC-XLV" secondAttribute="leading" id="5Jo-0e-ocV"/>
@@ -308,12 +309,13 @@
                                     <constraint firstItem="eIG-Ed-Qn2" firstAttribute="trailing" secondItem="fmU-Ac-jvj" secondAttribute="trailing" id="757-vh-pF1"/>
                                     <constraint firstItem="19t-m8-zJH" firstAttribute="leading" secondItem="CA0-ho-gKO" secondAttribute="leading" constant="20" id="88P-Fi-W9W"/>
                                     <constraint firstItem="f8E-WU-0Cn" firstAttribute="top" secondItem="UO1-QY-7yc" secondAttribute="bottom" constant="46" id="9Uc-ug-3uv"/>
-                                    <constraint firstItem="hU8-B7-HEF" firstAttribute="trailing" secondItem="yze-sn-Ncf" secondAttribute="trailing" id="9hR-9P-VaI"/>
                                     <constraint firstItem="fga-wz-aeJ" firstAttribute="trailing" secondItem="uoe-jC-zhk" secondAttribute="trailing" id="ABn-vy-rsE"/>
                                     <constraint firstItem="YJH-Gz-ZQe" firstAttribute="leading" secondItem="xKY-am-iB2" secondAttribute="leading" id="ACg-nW-FOa"/>
+                                    <constraint firstItem="uoe-jC-zhk" firstAttribute="trailing" secondItem="Bpi-jh-tWV" secondAttribute="trailing" id="BCU-uN-jNU"/>
                                     <constraint firstItem="A2O-Z2-Cql" firstAttribute="trailing" secondItem="n9y-IC-KYt" secondAttribute="trailing" id="BZI-oV-Mmu"/>
                                     <constraint firstItem="ZFC-Qs-4vm" firstAttribute="trailing" secondItem="EaU-br-LKF" secondAttribute="trailing" id="Bap-D6-1Ze"/>
                                     <constraint firstItem="9RP-vI-xgC" firstAttribute="top" secondItem="ZFC-Qs-4vm" secondAttribute="bottom" constant="8" symbolic="YES" id="CAm-o8-9Pt"/>
+                                    <constraint firstItem="yze-sn-Ncf" firstAttribute="leading" secondItem="Bpi-jh-tWV" secondAttribute="leading" id="CqY-AI-9Oa"/>
                                     <constraint firstItem="YJH-Gz-ZQe" firstAttribute="top" secondItem="fmU-Ac-jvj" secondAttribute="bottom" constant="46" id="DBo-1y-b43"/>
                                     <constraint firstItem="kN7-TL-2jc" firstAttribute="trailing" secondItem="IbM-6h-r2v" secondAttribute="trailing" id="DOr-z2-ya1"/>
                                     <constraint firstItem="uoe-jC-zhk" firstAttribute="leading" secondItem="CLI-4P-6ZF" secondAttribute="leading" id="EPS-ec-6V8"/>
@@ -328,7 +330,6 @@
                                     <constraint firstItem="C2g-Eu-oed" firstAttribute="leading" secondItem="UO1-QY-7yc" secondAttribute="leading" id="JF1-yv-WON"/>
                                     <constraint firstItem="k31-bg-e9w" firstAttribute="trailing" secondItem="b3i-Tt-KMJ" secondAttribute="trailing" id="KEY-aH-Zig"/>
                                     <constraint firstItem="n9y-IC-KYt" firstAttribute="leading" secondItem="C2g-Eu-oed" secondAttribute="leading" id="KFZ-xl-sMf"/>
-                                    <constraint firstAttribute="bottom" secondItem="yze-sn-Ncf" secondAttribute="bottom" constant="390" id="LBk-GL-W2l"/>
                                     <constraint firstItem="75W-zC-cKk" firstAttribute="leading" secondItem="A2O-Z2-Cql" secondAttribute="leading" id="LhH-U0-E5S"/>
                                     <constraint firstItem="75W-zC-cKk" firstAttribute="top" secondItem="BdU-oC-XLV" secondAttribute="bottom" constant="46" id="MiD-FJ-eZM"/>
                                     <constraint firstItem="f8E-WU-0Cn" firstAttribute="trailing" secondItem="CLI-4P-6ZF" secondAttribute="trailing" id="O30-Ya-YOX"/>
@@ -340,7 +341,6 @@
                                     <constraint firstItem="Y7t-fo-vHJ" firstAttribute="trailing" secondItem="x1n-TM-jvg" secondAttribute="trailing" id="PxB-8Q-2gp"/>
                                     <constraint firstItem="vMP-0a-cv5" firstAttribute="top" secondItem="EaU-br-LKF" secondAttribute="bottom" constant="8" symbolic="YES" id="QEL-wo-TVX"/>
                                     <constraint firstItem="Y7t-fo-vHJ" firstAttribute="top" secondItem="fmU-Ac-jvj" secondAttribute="bottom" constant="8" symbolic="YES" id="Qln-Df-0xd"/>
-                                    <constraint firstItem="hU8-B7-HEF" firstAttribute="top" secondItem="yze-sn-Ncf" secondAttribute="bottom" constant="8" symbolic="YES" id="RR0-l2-dJJ"/>
                                     <constraint firstItem="BdU-oC-XLV" firstAttribute="leading" secondItem="75W-zC-cKk" secondAttribute="leading" id="RdY-Pt-O5a"/>
                                     <constraint firstItem="kN7-TL-2jc" firstAttribute="top" secondItem="C2g-Eu-oed" secondAttribute="bottom" constant="8" symbolic="YES" id="Td8-iK-byU"/>
                                     <constraint firstItem="fmU-Ac-jvj" firstAttribute="trailing" secondItem="YJH-Gz-ZQe" secondAttribute="trailing" id="VRF-f0-cBd"/>
@@ -348,7 +348,6 @@
                                     <constraint firstItem="5zH-QO-L4m" firstAttribute="top" secondItem="eIG-Ed-Qn2" secondAttribute="bottom" constant="8" symbolic="YES" id="WHp-dv-Avj"/>
                                     <constraint firstItem="x1n-TM-jvg" firstAttribute="leading" secondItem="YJH-Gz-ZQe" secondAttribute="leading" id="Wbg-ir-yxQ"/>
                                     <constraint firstItem="oAF-dA-fsw" firstAttribute="top" secondItem="A2O-Z2-Cql" secondAttribute="bottom" constant="8" symbolic="YES" id="Wxu-fo-fjv"/>
-                                    <constraint firstItem="hU8-B7-HEF" firstAttribute="leading" secondItem="yze-sn-Ncf" secondAttribute="leading" id="XEy-MS-zVw"/>
                                     <constraint firstItem="YJH-Gz-ZQe" firstAttribute="trailing" secondItem="xKY-am-iB2" secondAttribute="trailing" id="Xbk-G1-diT"/>
                                     <constraint firstItem="EaU-br-LKF" firstAttribute="top" secondItem="ZFC-Qs-4vm" secondAttribute="bottom" constant="46" id="Xgi-fo-Iza"/>
                                     <constraint firstItem="9RP-vI-xgC" firstAttribute="trailing" secondItem="ZFC-Qs-4vm" secondAttribute="trailing" id="YVc-bP-hjb"/>
@@ -376,6 +375,7 @@
                                     <constraint firstItem="RNQ-DK-qxF" firstAttribute="leading" secondItem="75W-zC-cKk" secondAttribute="leading" id="jHE-so-dyE"/>
                                     <constraint firstAttribute="trailing" secondItem="19t-m8-zJH" secondAttribute="trailing" constant="16" id="jlO-Tc-R76"/>
                                     <constraint firstItem="Ty3-Dc-Y6Z" firstAttribute="leading" secondItem="xKY-am-iB2" secondAttribute="leading" id="kIq-2p-7aZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bpi-jh-tWV" secondAttribute="bottom" constant="352" id="kU3-oC-0rh"/>
                                     <constraint firstItem="IbM-6h-r2v" firstAttribute="top" secondItem="UO1-QY-7yc" secondAttribute="bottom" constant="8" symbolic="YES" id="l2I-7B-vNQ"/>
                                     <constraint firstItem="b3i-Tt-KMJ" firstAttribute="trailing" secondItem="kN7-TL-2jc" secondAttribute="trailing" id="m5K-TZ-RTi"/>
                                     <constraint firstItem="nXc-DU-z2q" firstAttribute="top" secondItem="19t-m8-zJH" secondAttribute="bottom" constant="8" symbolic="YES" id="olL-Y6-11R"/>
@@ -428,7 +428,7 @@
                         <outlet property="bundleIdText" destination="9RP-vI-xgC" id="R5E-2Z-UKd"/>
                         <outlet property="currencyText" destination="Ty3-Dc-Y6Z" id="Buj-jq-X8X"/>
                         <outlet property="currentVersionReleaseDateText" destination="x1n-TM-jvg" id="wHJ-oK-6uY"/>
-                        <outlet property="descripTion" destination="hU8-B7-HEF" id="Z8E-h7-UeU"/>
+                        <outlet property="descripTion" destination="Bpi-jh-tWV" id="zYw-ET-wdO"/>
                         <outlet property="devLabel" destination="19t-m8-zJH" id="Lqb-ow-JMC"/>
                         <outlet property="fileSizeBytes" destination="kN7-TL-2jc" id="epR-ZK-VcZ"/>
                         <outlet property="formattedPriceText" destination="fga-wz-aeJ" id="YzO-6j-FbW"/>

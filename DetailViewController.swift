@@ -36,6 +36,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var placeHolder: UITextField!
     @IBOutlet weak var placeHolderLabel: UILabel!
+    //@IBOutlet weak var descripTion: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,7 @@ class DetailViewController: UIViewController {
             fileSizeBytes.isEnabled = false
             supportedDevices.isEnabled = false
             formattedPriceText.isEnabled = false
-            descripTion.isEnabled = false
+            //descripTion.isEnabled = false
             //placeHolder.isEnabled = false
 
             artistNameText.text = object.artistName as? String
@@ -83,39 +84,15 @@ class DetailViewController: UIViewController {
             fileSizeBytes.text = object.fileSizeBytes as? String
             supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
             descripTion.text = object.description as? String
+            userRatingCount.text = object.userRatingCount.description
             navigationItem.title = object.trackName as? String
         }
     }
     
     @IBAction func moreButton(_ sender: AnyObject) {
 
-        let plusInsert = artistNameText.text!.components(separatedBy: " ")
-        let realSearchText = plusInsert.joined(separator: "+")
-
-        print(realSearchText)
-
-        Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
-
-            if error != nil {
-
-                self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
-            } else if searchResultsDict?.count == 0 {
-
-                self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
-            } else {
-
-                if let searchResultsDict = searchResultsDict {
-
-                    print(searchResultsDict)
-
-                    performUIUpdatesOnMain {
-
-                        let controller = self.storyboard?.instantiateViewController(withIdentifier: "DevViewController") as? DevViewController
-                        self.navigationController!.pushViewController(controller!, animated: true)
-                    }
-                }
-            }
-        }
+        let app = UIApplication.shared
+        app.openURL(NSURL(string: Client.Constants.Scheme.GoToApp + trackIdText.text!)! as URL)
     }
 
     @IBAction func backButton(_ sender: AnyObject) {

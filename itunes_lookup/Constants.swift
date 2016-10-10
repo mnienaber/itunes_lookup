@@ -17,6 +17,7 @@ extension Client {
 
             static let SearchMethod = "https://itunes.apple.com/search?term="
             static let LookUpMethod = "https://itunes.apple.com/lookup?id="
+            static let GoToApp = "https://itunes.apple.com/app/id"
             static let limitAndApp = "&&entity=software"
             static let devname = "&&entity=artistName"
         }
