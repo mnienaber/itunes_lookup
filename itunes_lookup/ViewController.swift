@@ -32,6 +32,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.delegate = self
         tableView.delegate = self
         self.tableView.reloadData()
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        //titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SF-UI-Text-Bold", size: 34)! ]
     }
 
     func testApi(_ searchText: String) {

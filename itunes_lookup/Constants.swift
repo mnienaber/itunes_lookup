@@ -33,16 +33,21 @@ extension Client {
             static let languageCodesISO2A = "languageCodesISO2A"
             static let FormattedPrice = "formattedPrice"
             static let CurrentVersionReleaseDate = "currentVersionReleaseDate"
-            static let ArtworkUrl60 = "artworkUrl60"
+            static let ArtworkUrl60 = "artworkUrl512"
             static let MinimumOsVersion = "minimumOsVersion"
             static let PrimaryGenreName = "primaryGenreName"
             static let Description = "description"
             static let UserRatingCount = "userRatingCount"
             static let Version = "version"
-            static let UserRatingCountForCurrentVersion = "userRatingCountForCurrentVersion"
+            static let AverageUserRatingForCurrentVersion = "averageUserRatingForCurrentVersion"
             static let FileSizeBytes = "fileSizeBytes"
             static let SupportedDevices = "supportedDevices"
             static let TrackName = "trackName"
+            static let Kind = "kind"
+            static let TrackContentRating = "trackContentRating"
+            static let TrackCensoredName = "trackCensoredName"
+            static let Features = "features"
+            static let SellerName = "sellerName"
         }
     }
 }

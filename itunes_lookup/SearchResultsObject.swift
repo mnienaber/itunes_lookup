@@ -24,13 +24,18 @@ struct SearchResultsDict {
     let currency: AnyObject
     let primaryGenreName: AnyObject
     let minimumOsVersion: AnyObject
-    let userRatingCountForCurrentVersion: AnyObject
+    let averageUserRatingForCurrentVersion: AnyObject
     let userRatingCount: AnyObject
     let fileSizeBytes: AnyObject
     let supportedDevices: AnyObject
     let formattedPrice: AnyObject
     let description: AnyObject
     let trackName: AnyObject
+    let kind: AnyObject
+    let trackContentRating: AnyObject
+    let features: AnyObject
+    let sellerName: AnyObject
+    let artworkUrl60Text: AnyObject
 
     init?(dictionary: [String: AnyObject]) {
 
@@ -53,8 +58,8 @@ struct SearchResultsDict {
         version = v
         guard let uRatingCount = (dictionary[Client.Constants.SearchResults.UserRatingCount] as AnyObject!) else { return nil }
         userRatingCount = uRatingCount
-        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.UserRatingCountForCurrentVersion] as AnyObject!) else { return nil }
-        userRatingCountForCurrentVersion = uRatingCountForCurrentVersion
+        guard let uRatingCountForCurrentVersion = (dictionary[Client.Constants.SearchResults.AverageUserRatingForCurrentVersion] as AnyObject!) else { return nil }
+        averageUserRatingForCurrentVersion = uRatingCountForCurrentVersion
         guard let mOsVersion = (dictionary[Client.Constants.SearchResults.MinimumOsVersion] as AnyObject!) else { return nil }
         minimumOsVersion = mOsVersion
         guard let pGenreName = (dictionary[Client.Constants.SearchResults.PrimaryGenreName] as AnyObject!) else { return nil }
@@ -69,6 +74,16 @@ struct SearchResultsDict {
         trackName = trNm
         guard let trId = (dictionary[Client.Constants.SearchResults.TrackId] as AnyObject!) else { return nil }
         trackId = trId
+        guard let knd = (dictionary[Client.Constants.SearchResults.Kind] as AnyObject!) else { return nil }
+        kind = knd
+        guard let tContentRating = (dictionary[Client.Constants.SearchResults.TrackContentRating] as AnyObject!) else { return nil }
+        trackContentRating = tContentRating
+        guard let ftures = (dictionary[Client.Constants.SearchResults.Features] as AnyObject!) else { return nil }
+        features = ftures
+        guard let sName = (dictionary[Client.Constants.SearchResults.SellerName] as AnyObject!) else { return nil }
+        sellerName = sName
+        guard let art = (dictionary[Client.Constants.SearchResults.ArtworkUrl60] as AnyObject!) else { return nil }
+        artworkUrl60Text = art
     }
 
     static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {
