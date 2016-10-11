@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
@@ -24,7 +23,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.showsScopeBar = true
         tableView.delegate = self
         tableView.dataSource = self
-        self.searchBar.isFirstResponder
+        searchBar.isFirstResponder
         appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
 
@@ -102,7 +101,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         let searchText = searchBar.text!
         testApi(searchText)
         self.tableView.reloadData()
-
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -110,7 +108,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
         searchBar.resignFirstResponder()
         searchBar.text = ""
     }
-
 }
 
 extension ViewController {

@@ -34,29 +34,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var supportedDevices: UITextField!
     @IBOutlet weak var descripTion: UITextField!
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var placeHolder: UITextField!
-    @IBOutlet weak var placeHolderLabel: UILabel!
     @IBOutlet weak var kind: UITextField!
     @IBOutlet weak var contentRating: UITextField!
     @IBOutlet weak var features: UITextField!
     @IBOutlet weak var sellerName: UITextField!
     @IBOutlet weak var imageView: UIImageView!
 
-    //@IBOutlet weak var descripTion: UITextView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if let checkedUrl = URL(string: "http://www.pngmart.com/files/2/Mario-Transparent-Background.png") {
+        if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
 
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             downloadImage(url: checkedUrl)
-            print(checkedUrl)
         }
-
-
-        //navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SF-UI-Text-Bold", size: 34)! ]
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -99,8 +91,7 @@ class DetailViewController: UIViewController {
             primaryGenreName.text = object.primaryGenreName as? String
             averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description
             let fsize = ((object.fileSizeBytes).integerValue) / 1000000
-            print(fsize)
-            fileSizeBytes.text = String(describing: fsize) + " mb"
+            fileSizeBytes.text = String(describing: fsize) + "mb"
             supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
             descripTion.text = object.description as? String
             userRatingCount.text = object.userRatingCount.description
@@ -109,6 +100,33 @@ class DetailViewController: UIViewController {
             features.text = object.features.componentsJoined(by: ", ")
             sellerName.text = object.sellerName as? String
             navigationItem.title = object.trackName as? String
+        }
+    }
+
+    func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
+        print("canAuthenticateAgainstProtectionSpace method Returning True")
+        return true
+    }
+
+    func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: URLAuthenticationChallenge){
+
+        print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
+
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
+            print("send credential Server Trust")
+            let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+            challenge.sender!.use(credential, for: challenge)
+
+        }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
+            print("send credential HTTP Basic")
+            let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
+            challenge.sender!.use(defaultCredentials, for: challenge)
+
+        }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
+            print("send credential NTLM")
+
+        } else{
+            challenge.sender!.performDefaultHandling!(for: challenge)
         }
     }
     
@@ -132,6 +150,7 @@ class DetailViewController: UIViewController {
     }
 
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+
         URLSession.shared.dataTask(with: url) {
             (data, response, error) in
             completion(data, response, error)
@@ -140,9 +159,14 @@ class DetailViewController: UIViewController {
 
     func downloadImage(url: URL) {
         print("Download Started")
+        let urlRequest = NSURLRequest(url: url)
+        let urlConnection: NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
         getDataFromUrl(url: url) { (data, response, error)  in
+
             DispatchQueue.main.sync() { () -> Void in
+                print("starting")
                 guard let data = data, error == nil else { return }
+                print("ongoing")
                 print(response?.suggestedFilename ?? url.lastPathComponent)
                 print("Download Finished")
                 self.imageView.image = UIImage(data: data)
