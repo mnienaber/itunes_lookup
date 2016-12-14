@@ -7,6 +7,7 @@ target 'itunes_lookup' do
 
   # Pods for itunes_lookup
 
+pod 'Firebase/Core'
 
   target 'itunes_lookupTests' do
     inherit! :search_paths

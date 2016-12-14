@@ -16,6 +16,7 @@ extension Client {
         if Validation.isStringNumerical(string: query) == true {
 
             let url = Client.Constants.Scheme.LookUpMethod + query
+            print(url)
 
             taskForGETMethod(urlString: url, query: query) { results, error in
 

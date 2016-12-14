@@ -42,6 +42,7 @@
 		2E2CFBE81D51D62C00520726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E2CFBE61D51D62C00520726 /* LaunchScreen.storyboard */; };
 		2E2CFBF31D51D62C00520726 /* itunes_lookupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBF21D51D62C00520726 /* itunes_lookupTests.swift */; };
 		2E2CFBFE1D51D62C00520726 /* itunes_lookupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */; };
+		2EADF0651DB46FF400105D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */; };
 		2EE37D041D781545008A0BF0 /* SearchResultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itunes_lookupUITests.swift; sourceTree = "<group>"; };
 		2E2CFBFF1D51D62C00520726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E2E85F61DA38B610074A70C /* libnfshared.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnfshared.tbd; path = usr/lib/libnfshared.tbd; sourceTree = SDKROOT; };
+		2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsStore.swift; sourceTree = "<group>"; };
 		3908439CFC046AA90E4C3E46 /* Pods_itunes_lookupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_itunes_lookupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F00F845F7855935DD9C9440 /* Pods-itunes_lookupUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_lookupUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-itunes_lookupUITests/Pods-itunes_lookupUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				2E2CFBE41D51D62C00520726 /* Assets.xcassets */,
 				2E2CFBE61D51D62C00520726 /* LaunchScreen.storyboard */,
 				2E2CFBE91D51D62C00520726 /* Info.plist */,
+				2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */,
 				2E2CFBE11D51D62C00520726 /* itunes_lookup.xcdatamodeld */,
 				2E0397ED1DAC99A700F03ED3 /* Font */,
 			);
@@ -353,7 +356,7 @@
 				TargetAttributes = {
 					2E2CFBD61D51D62C00520726 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZXKDF4ZF72;
+						DevelopmentTeam = UPHEULWWN9;
 						LastSwiftMigration = 0800;
 					};
 					2E2CFBED1D51D62C00520726 = {
@@ -404,6 +407,7 @@
 				2E0397E31DAC89A300F03ED3 /* SF-UI-Text-Light.otf in Resources */,
 				2E0397E41DAC89A300F03ED3 /* SF-UI-Text-LightItalic.otf in Resources */,
 				2E0397E51DAC89A300F03ED3 /* SF-UI-Text-Medium.otf in Resources */,
+				2EADF0651DB46FF400105D79 /* GoogleService-Info.plist in Resources */,
 				2E2CFBE01D51D62C00520726 /* Main.storyboard in Resources */,
 				2E0397EA1DAC89A300F03ED3 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				2E0397EC1DAC89A300F03ED3 /* SF-UI-Text-UltrathinItalic.otf in Resources */,
@@ -715,7 +719,7 @@
 			baseConfigurationReference = 8A6DE4E4378F632FE21D92CD /* Pods-itunes_lookup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZXKDF4ZF72;
+				DEVELOPMENT_TEAM = UPHEULWWN9;
 				INFOPLIST_FILE = itunes_lookup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";
@@ -729,7 +733,7 @@
 			baseConfigurationReference = C675FC0AF37A5B42D298DF6C /* Pods-itunes_lookup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZXKDF4ZF72;
+				DEVELOPMENT_TEAM = UPHEULWWN9;
 				INFOPLIST_FILE = itunes_lookup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelnienaber.itunes-lookup";
