@@ -48,7 +48,7 @@ struct SearchResultsDict {
         releaseDate = rDate
         guard let c = (dictionary[Client.Constants.SearchResults.currency] as AnyObject!) else { return nil }
         currency = c
-        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as! AnyObject!) else { return nil }
+        guard let lCodesISO2A = (dictionary[Client.Constants.SearchResults.languageCodesISO2A] as AnyObject!) else { return nil }
         languageCodesISO2A = lCodesISO2A
         guard let fPrice = (dictionary[Client.Constants.SearchResults.FormattedPrice] as AnyObject!) else { return nil }
         formattedPrice = fPrice

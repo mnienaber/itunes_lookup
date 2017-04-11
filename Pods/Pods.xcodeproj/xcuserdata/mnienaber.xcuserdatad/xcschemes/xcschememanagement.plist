@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-itunes_lookup.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E395BCC06C94D778C4075CF3D52FB10</key>
+		<key>00103D6C821BE85971C563025527BA5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A760AD5EF5234AEDB9444B6C88FB640E</key>
+		<key>2780B5969FF3849B3862B5CE0E651732</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C25F6A85030C7EE871BE5B068A624559</key>
+		<key>A73E64E4EE7C1B4B9D8132E523F44BA4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6128992C0F054040CCFDEC6D2EF06C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

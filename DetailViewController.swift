@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
 
 class DetailViewController: UIViewController {
 
     var appDelegate: AppDelegate!
     var searchObject: SearchResultsDict?
     var shareableObject = [SearchResultsDict]()
+
+  @IBOutlet weak var admobAd: GADBannerView!
 
     @IBOutlet weak var devLabel: UILabel!
     @IBOutlet weak var artistNameText: UITextField!
@@ -42,6 +45,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        admobAd.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        admobAd.rootViewController = self
+        admobAd.load(GADRequest())
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
