@@ -45,11 +45,12 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        admobAd.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        admobAd.adUnitID = "ca-app-pub-6219811747049371/7793655040"
         admobAd.rootViewController = self
         admobAd.load(GADRequest())
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
+        print(searchObject)
         if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
 
             imageView.contentMode = .scaleAspectFill
