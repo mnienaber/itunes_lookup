@@ -5,6 +5,7 @@ target 'itunes_lookup' do
   use_frameworks!
 
   # Pods for itunes_lookup
+pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 
@@ -15,12 +16,12 @@ platform :ios, '7.0'
 
   target 'itunes_lookupTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Firebase'
   end
 
   target 'itunes_lookupUITests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Firebase'
   end
 
 end

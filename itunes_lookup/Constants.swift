@@ -11,43 +11,44 @@ import UIKit
 
 extension Client {
 
-    struct Constants {
+  struct Constants {
 
-        struct Scheme {
+      struct Scheme {
 
-            static let SearchMethod = "https://itunes.apple.com/search?term="
-            static let LookUpMethod = "https://itunes.apple.com/lookup?id="
-            static let GoToApp = "https://itunes.apple.com/app/id"
-            static let limitAndApp = "&&entity=software"
-            static let devname = "&&entity=artistName"
-        }
+          static let SearchMethod = "https://itunes.apple.com/search?term="
+          static let LookUpMethod = "https://itunes.apple.com/lookup?id="
+          static let GoToApp = "https://itunes.apple.com/app/id"
+          static let andApp = "&&entity=software"
+          static let devname = "&&entity=artistName"
+          static let limit = "&limit=20"
+      }
 
-        struct SearchResults {
+      struct SearchResults {
 
-            static let ArtistName = "artistName"
-            static let BundleId = "bundleId"
-            static let TrackId = "trackId"
-            static let ReleaseDate = "releaseDate"
-            static let country = "country"
-            static let currency = "currency"
-            static let languageCodesISO2A = "languageCodesISO2A"
-            static let FormattedPrice = "formattedPrice"
-            static let CurrentVersionReleaseDate = "currentVersionReleaseDate"
-            static let ArtworkUrl60 = "artworkUrl512"
-            static let MinimumOsVersion = "minimumOsVersion"
-            static let PrimaryGenreName = "primaryGenreName"
-            static let Description = "description"
-            static let UserRatingCount = "userRatingCount"
-            static let Version = "version"
-            static let AverageUserRatingForCurrentVersion = "averageUserRatingForCurrentVersion"
-            static let FileSizeBytes = "fileSizeBytes"
-            static let SupportedDevices = "supportedDevices"
-            static let TrackName = "trackName"
-            static let Kind = "kind"
-            static let TrackContentRating = "trackContentRating"
-            static let TrackCensoredName = "trackCensoredName"
-            static let Features = "features"
-            static let SellerName = "sellerName"
-        }
-    }
+          static let ArtistName = "artistName"
+          static let BundleId = "bundleId"
+          static let TrackId = "trackId"
+          static let ReleaseDate = "releaseDate"
+          static let country = "country"
+          static let currency = "currency"
+          static let languageCodesISO2A = "languageCodesISO2A"
+          static let FormattedPrice = "formattedPrice"
+          static let CurrentVersionReleaseDate = "currentVersionReleaseDate"
+          static let ArtworkUrl60 = "artworkUrl512"
+          static let MinimumOsVersion = "minimumOsVersion"
+          static let PrimaryGenreName = "primaryGenreName"
+          static let Description = "description"
+          static let UserRatingCount = "userRatingCount"
+          static let Version = "version"
+          static let AverageUserRatingForCurrentVersion = "averageUserRatingForCurrentVersion"
+          static let FileSizeBytes = "fileSizeBytes"
+          static let SupportedDevices = "supportedDevices"
+          static let TrackName = "trackName"
+          static let Kind = "kind"
+          static let TrackContentRating = "trackContentRating"
+          static let TrackCensoredName = "trackCensoredName"
+          static let Features = "features"
+          static let SellerName = "sellerName"
+      }
+  }
 }

@@ -40,7 +40,7 @@ extension Client {
             }
         } else {
 
-            let url = Client.Constants.Scheme.SearchMethod + query + Client.Constants.Scheme.limitAndApp
+            let url = Client.Constants.Scheme.SearchMethod + query + Client.Constants.Scheme.andApp
 
             taskForGETMethod(urlString: url, query: query) { results, error in
 
