@@ -36,41 +36,40 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     tableView.delegate = self
     self.tableView.reloadData()
     navigationController?.navigationBar.barTintColor = UIColor.white
-//    titleTextAttributes = [ NSFontAttributeName: UIFont(name: "SF-UI-Text-Bold", size: 34)! ]
   }
 
   func testApi(_ searchText: String) {
 
-      let plusInsert = searchText.components(separatedBy: " ")
-      let realSearchText = plusInsert.joined(separator: "+")
+    let plusInsert = searchText.components(separatedBy: " ")
+    let realSearchText = plusInsert.joined(separator: "+")
 
-      print(realSearchText)
+    print(realSearchText)
 
-      Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
+    Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
 
-          if error != nil {
+        if error != nil {
 
-              self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
-          } else if searchResultsDict?.count == 0 {
+            self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
+        } else if searchResultsDict?.count == 0 {
 
-              self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
-          } else {
+            self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
+        } else {
 
-              if let searchResultsDict = searchResultsDict {
+            if let searchResultsDict = searchResultsDict {
 
-                  performUIUpdatesOnMain {
+                performUIUpdatesOnMain {
 
-                      for _ in SearchResultsStore.sharedInstance().searchResults {
+                    for _ in SearchResultsStore.sharedInstance().searchResults {
 
-                          DispatchQueue.main.async(execute: { () -> Void in
-                              self.tableView.reloadData()
-                          })
-                      }
-                      self.tableView.reloadData()
-                  }
-              }
-          }
-      }
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            self.tableView.reloadData()
+                        })
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

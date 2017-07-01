@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "container:"
+      name = "CoreData">
+      <FileRef
+         location = "group:App+CoreDataClass.swift">
+      </FileRef>
+      <FileRef
+         location = "group:App+CoreDataProperties.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Book+CoreDataClass.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Book+CoreDataProperties.swift">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:itunes_lookup.xcodeproj">
    </FileRef>

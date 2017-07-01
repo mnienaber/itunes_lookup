@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
   var searchObject: SearchResultsDict?
   var shareableObject = [SearchResultsDict]()
   var trackIdText = String()
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
   @IBOutlet weak var admobAd: GADBannerView!
 
@@ -46,6 +47,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.isHidden = false
 //        admobAd.adUnitID = "ca-app-pub-6219811747049371/7793655040"
 //        admobAd.rootViewController = self
 //        admobAd.load(GADRequest())
@@ -172,19 +174,21 @@ class DetailViewController: UIViewController {
 
     func downloadImage(url: URL) {
         print("Download Started")
-        let urlRequest = NSURLRequest(url: url)
-        let urlConnection: NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
-        getDataFromUrl(url: url) { (data, response, error)  in
+      let urlRequest = NSURLRequest(url: url)
+      let urlConnection: NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
+      getDataFromUrl(url: url) { (data, response, error)  in
 
-            DispatchQueue.main.sync() { () -> Void in
-                print("starting")
-                guard let data = data, error == nil else { return }
-                print("ongoing")
-                print(response?.suggestedFilename ?? url.lastPathComponent)
-                print("Download Finished")
-                self.imageView.image = UIImage(data: data)
-            }
+        DispatchQueue.main.sync() { () -> Void in
+          print("starting")
+          guard let data = data, error == nil else { return }
+          print("ongoing")
+          print(response?.suggestedFilename ?? url.lastPathComponent)
+          print("Download Finished")
+          self.activityIndicator.isHidden = true
+          self.imageView.image = UIImage(data: data)
         }
+
+      }
     }
 }
 
