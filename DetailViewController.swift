@@ -20,30 +20,32 @@ class DetailViewController: UIViewController {
 
   @IBOutlet weak var admobAd: GADBannerView!
 
-    @IBOutlet weak var devLabel: UILabel!
-    @IBOutlet weak var artistNameText: UITextField!
-    @IBOutlet weak var bundleIdText: UITextField!
+  @IBOutlet weak var devLabel: UILabel!
+  @IBOutlet weak var artistNameText: UITextField!
+  @IBOutlet weak var bundleIdText: UITextField!
 //    @IBOutlet weak var trackIdText: String!
-    @IBOutlet weak var releaseDateText: UITextField!
-    @IBOutlet weak var currentVersionReleaseDateText: UITextField!
-    @IBOutlet weak var languageCodesISO2A: UITextField!
-    @IBOutlet weak var formattedPriceText: UITextField!
-    @IBOutlet weak var currencyText: UITextField!
-    @IBOutlet weak var versionText: UITextField!
-    @IBOutlet weak var artworkUrl60Text: UITextField!
-    @IBOutlet weak var averageUserRatingForCurrentVersion: UITextField!
-    @IBOutlet weak var minimumOsVersion: UITextField!
-    @IBOutlet weak var primaryGenreName: UITextField!
-    @IBOutlet weak var userRatingCount: UITextField!
-    @IBOutlet weak var fileSizeBytes: UITextField!
-    @IBOutlet weak var supportedDevices: UITextField!
-    @IBOutlet weak var descripTion: UITextField!
-    @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var kind: UITextField!
-    @IBOutlet weak var contentRating: UITextField!
-    @IBOutlet weak var features: UITextField!
-    @IBOutlet weak var sellerName: UITextField!
-    @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var releaseDateText: UITextField!
+  @IBOutlet weak var currentVersionReleaseDateText: UITextField!
+  @IBOutlet weak var languageCodesISO2A: UITextField!
+  @IBOutlet weak var formattedPriceText: UITextField!
+  @IBOutlet weak var currencyText: UITextField!
+  @IBOutlet weak var versionText: UITextField!
+  @IBOutlet weak var artworkUrl60Text: UITextField!
+  @IBOutlet weak var averageUserRatingForCurrentVersion: UITextField!
+  @IBOutlet weak var minimumOsVersion: UITextField!
+  @IBOutlet weak var primaryGenreName: UITextField!
+  @IBOutlet weak var userRatingCount: UITextField!
+  @IBOutlet weak var fileSizeBytes: UITextField!
+  @IBOutlet weak var supportedDevices: UITextField!
+//    @IBOutlet weak var descripTion: UITextField!
+
+  @IBOutlet weak var descripTion: UITextView!
+  @IBOutlet weak var backButton: UIBarButtonItem!
+  @IBOutlet weak var kind: UITextField!
+  @IBOutlet weak var contentRating: UITextField!
+  @IBOutlet weak var features: UITextField!
+  @IBOutlet weak var sellerName: UITextField!
+  @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +84,7 @@ class DetailViewController: UIViewController {
           fileSizeBytes.isEnabled = false
 //            supportedDevices.isEnabled = false
           formattedPriceText.isEnabled = false
-          descripTion.isEnabled = false
+//          descripTion.isEnabled = false
 //            kind.isEnabled = false
 //            contentRating.isEnabled = false
 //            features.isEnabled = false
