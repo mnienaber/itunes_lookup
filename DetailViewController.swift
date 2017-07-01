@@ -12,16 +12,17 @@ import GoogleMobileAds
 
 class DetailViewController: UIViewController {
 
-    var appDelegate: AppDelegate!
-    var searchObject: SearchResultsDict?
-    var shareableObject = [SearchResultsDict]()
+  var appDelegate: AppDelegate!
+  var searchObject: SearchResultsDict?
+  var shareableObject = [SearchResultsDict]()
+  var trackIdText = String()
 
   @IBOutlet weak var admobAd: GADBannerView!
 
     @IBOutlet weak var devLabel: UILabel!
     @IBOutlet weak var artistNameText: UITextField!
     @IBOutlet weak var bundleIdText: UITextField!
-    @IBOutlet weak var trackIdText: UITextField!
+//    @IBOutlet weak var trackIdText: String!
     @IBOutlet weak var releaseDateText: UITextField!
     @IBOutlet weak var currentVersionReleaseDateText: UITextField!
     @IBOutlet weak var languageCodesISO2A: UITextField!
@@ -45,68 +46,68 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        admobAd.adUnitID = "ca-app-pub-6219811747049371/7793655040"
-        admobAd.rootViewController = self
-        admobAd.load(GADRequest())
+//        admobAd.adUnitID = "ca-app-pub-6219811747049371/7793655040"
+//        admobAd.rootViewController = self
+//        admobAd.load(GADRequest())
         self.automaticallyAdjustsScrollViewInsets = false
         appDelegate = UIApplication.shared.delegate as! AppDelegate
         print(searchObject)
         if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
 
-            imageView.contentMode = .scaleAspectFill
+            imageView.contentMode = .scaleAspectFit
             downloadImage(url: checkedUrl)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
 
-        if let object = searchObject {
+      if let object = searchObject {
 
-            shareableObject = [object]
+          shareableObject = [object]
 
-            artistNameText.isEnabled = false
-            bundleIdText.isEnabled = false
-            trackIdText.isEnabled = false
-            versionText.isEnabled = false
-            releaseDateText.isEnabled = false
-            currentVersionReleaseDateText.isEnabled = false
-            languageCodesISO2A.isEnabled = false
-            currencyText.isEnabled = false
-            primaryGenreName.isEnabled = false
-            minimumOsVersion.isEnabled = false
-            averageUserRatingForCurrentVersion.isEnabled = false
-            userRatingCount.isEnabled = false
-            fileSizeBytes.isEnabled = false
-            supportedDevices.isEnabled = false
-            formattedPriceText.isEnabled = false
-            descripTion.isEnabled = false
-            kind.isEnabled = false
-            contentRating.isEnabled = false
-            features.isEnabled = false
-            sellerName.isEnabled = false
-
-            artistNameText.text = object.artistName as? String
-            bundleIdText.text = object.bundleId as? String
-            trackIdText.text = object.trackId.description
-            versionText.text = object.version as? String
-            releaseDateText.text = object.releaseDate as? String
-            currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
-            languageCodesISO2A.text = object.languageCodesISO2A.componentsJoined(by: ", ")
-            formattedPriceText.text = object.formattedPrice as? String
-            currencyText.text = object.currency as? String
-            minimumOsVersion.text = object.minimumOsVersion as? String
-            primaryGenreName.text = object.primaryGenreName as? String
-            averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description
-            let fsize = ((object.fileSizeBytes).integerValue) / 1000000
-            fileSizeBytes.text = String(describing: fsize) + "mb"
-            supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
-            descripTion.text = object.description as? String
-            userRatingCount.text = object.userRatingCount.description
-            kind.text = object.kind as? String
-            contentRating.text = object.trackContentRating as? String
-            features.text = object.features.componentsJoined(by: ", ")
-            sellerName.text = object.sellerName as? String
-            navigationItem.title = object.trackName as? String
+          artistNameText.isEnabled = false
+//            bundleIdText.isEnabled = false
+//            trackIdText.isEnabled = false
+//            versionText.isEnabled = false
+//            releaseDateText.isEnabled = false
+//            currentVersionReleaseDateText.isEnabled = false
+//            languageCodesISO2A.isEnabled = false
+//            currencyText.isEnabled = false
+//            primaryGenreName.isEnabled = false
+//            minimumOsVersion.isEnabled = false
+//            averageUserRatingForCurrentVersion.isEnabled = false
+//            userRatingCount.isEnabled = false
+          fileSizeBytes.isEnabled = false
+//            supportedDevices.isEnabled = false
+          formattedPriceText.isEnabled = false
+          descripTion.isEnabled = false
+//            kind.isEnabled = false
+//            contentRating.isEnabled = false
+//            features.isEnabled = false
+//            sellerName.isEnabled = false
+//
+          artistNameText.text = object.artistName as? String
+//            bundleIdText.text = object.bundleId as? String
+            trackIdText = object.trackId.description
+//            versionText.text = object.version as? String
+//            releaseDateText.text = object.releaseDate as? String
+//            currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
+//            languageCodesISO2A.text = object.languageCodesISO2A.componentsJoined(by: ", ")
+          formattedPriceText.text = object.formattedPrice as? String
+//            currencyText.text = object.currency as? String
+//            minimumOsVersion.text = object.minimumOsVersion as? String
+//            primaryGenreName.text = object.primaryGenreName as? String
+        averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description + "\u{2b50}"
+          let fsize = ((object.fileSizeBytes).integerValue) / 1000000
+          fileSizeBytes.text = String(describing: fsize) + "mb"
+//            supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
+          descripTion.text = object.description as? String
+//            userRatingCount.text = object.userRatingCount.description
+//            kind.text = object.kind as? String
+//            contentRating.text = object.trackContentRating as? String
+//            features.text = object.features.componentsJoined(by: ", ")
+//            sellerName.text = object.sellerName as? String
+          navigationItem.title = object.trackName as? String
         }
     }
 
@@ -139,8 +140,9 @@ class DetailViewController: UIViewController {
     
     @IBAction func moreButton(_ sender: AnyObject) {
 
-        let app = UIApplication.shared
-        app.openURL(NSURL(string: Client.Constants.Scheme.GoToApp + trackIdText.text!)! as URL)
+      let app = UIApplication.shared
+      app.openURL(NSURL(string: Client.Constants.Scheme.GoToApp + trackIdText)! as URL)
+      print("off to iTunes")
     }
 
     @IBAction func backButton(_ sender: AnyObject) {
@@ -148,12 +150,16 @@ class DetailViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
+  @IBAction func markButton(_ sender: Any) {
+    print("markButton")
+  }
+
     @IBAction func shareButton(_ sender: AnyObject) {
 
-        let shareDict = SearchResultsStore.sharedInstance().searchResults
+      let shareDict = SearchResultsStore.sharedInstance().searchResults
 
-        let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
-        self.present(activityView, animated: true, completion: nil)
+      let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
+      self.present(activityView, animated: true, completion: nil)
     }
 
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
