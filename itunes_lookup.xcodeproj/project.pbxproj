@@ -44,7 +44,7 @@
 		2E2CFBFE1D51D62C00520726 /* itunes_lookupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */; };
 		2EADF0651DB46FF400105D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */; };
 		2EE269281F0A595500BC91F3 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */; };
-		2EE2692A1F0A627200BC91F3 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE269291F0A627200BC91F3 /* CoreData.swift */; };
+		2EE2692A1F0A627200BC91F3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE269291F0A627200BC91F3 /* CoreDataStack.swift */; };
 		2EE2692C1F0A68BD00BC91F3 /* BookMarkedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2692B1F0A68BD00BC91F3 /* BookMarkedCell.swift */; };
 		2EE37D041D781545008A0BF0 /* SearchResultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */; };
 		2EF227A61EF8F9BD00089E11 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF227A51EF8F9BD00089E11 /* CustomTableCell.swift */; };
@@ -111,7 +111,7 @@
 		2E2E85F61DA38B610074A70C /* libnfshared.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnfshared.tbd; path = usr/lib/libnfshared.tbd; sourceTree = SDKROOT; };
 		2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
-		2EE269291F0A627200BC91F3 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		2EE269291F0A627200BC91F3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2EE2692B1F0A68BD00BC91F3 /* BookMarkedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookMarkedCell.swift; sourceTree = "<group>"; };
 		2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsStore.swift; sourceTree = "<group>"; };
 		2EF227A51EF8F9BD00089E11 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 				2EF227A71F035F2400089E11 /* BookMarkedVC.swift */,
 				2EE2692B1F0A68BD00BC91F3 /* BookMarkedCell.swift */,
 				2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */,
-				2EE269291F0A627200BC91F3 /* CoreData.swift */,
+				2EE269291F0A627200BC91F3 /* CoreDataStack.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -597,7 +597,7 @@
 				2EE37D041D781545008A0BF0 /* SearchResultsStore.swift in Sources */,
 				2EE269281F0A595500BC91F3 /* CoreDataTableViewController.swift in Sources */,
 				2EE2692C1F0A68BD00BC91F3 /* BookMarkedCell.swift in Sources */,
-				2EE2692A1F0A627200BC91F3 /* CoreData.swift in Sources */,
+				2EE2692A1F0A627200BC91F3 /* CoreDataStack.swift in Sources */,
 				2E2C27F31D6423A800C6A1E3 /* Convenience.swift in Sources */,
 				2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */,
 				2EF227A81F035F2400089E11 /* BookMarkedVC.swift in Sources */,

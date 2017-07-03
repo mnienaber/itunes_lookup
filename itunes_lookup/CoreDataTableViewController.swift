@@ -44,7 +44,7 @@ class CoreDataTableViewController: UITableViewController {
 
 extension CoreDataTableViewController {
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     fatalError("This method MUST be implemented by a subclass of CoreDataTableViewController")
   }
 }
