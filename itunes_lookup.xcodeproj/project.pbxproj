@@ -26,6 +26,7 @@
 		2E0397EA1DAC89A300F03ED3 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397DC1DAC89A300F03ED3 /* SF-UI-Text-SemiboldItalic.otf */; };
 		2E0397EB1DAC89A300F03ED3 /* SF-UI-Text-Ultrathin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397DD1DAC89A300F03ED3 /* SF-UI-Text-Ultrathin.otf */; };
 		2E0397EC1DAC89A300F03ED3 /* SF-UI-Text-UltrathinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397DE1DAC89A300F03ED3 /* SF-UI-Text-UltrathinItalic.otf */; };
+		2E21B31F1F0CA15B00E96E8A /* FailAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E21B31E1F0CA15B00E96E8A /* FailAlerts.swift */; };
 		2E28423F1D92486D00EF68D6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E28423E1D92486D00EF68D6 /* Reachability.swift */; };
 		2E2842441D9277F200EF68D6 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2842431D9277F200EF68D6 /* Validation.swift */; };
 		2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2C27F01D64237900C6A1E3 /* BlackBox.swift */; };
@@ -86,6 +87,7 @@
 		2E0397DC1DAC89A300F03ED3 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-SemiboldItalic.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		2E0397DD1DAC89A300F03ED3 /* SF-UI-Text-Ultrathin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Ultrathin.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-Ultrathin.otf"; sourceTree = "<group>"; };
 		2E0397DE1DAC89A300F03ED3 /* SF-UI-Text-UltrathinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-UltrathinItalic.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-UltrathinItalic.otf"; sourceTree = "<group>"; };
+		2E21B31E1F0CA15B00E96E8A /* FailAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailAlerts.swift; sourceTree = "<group>"; };
 		2E28423E1D92486D00EF68D6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = "../../../../../Downloads/Reachability.swift-master/Reachability/Reachability.swift"; sourceTree = "<group>"; };
 		2E2842431D9277F200EF68D6 /* Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		2E2C27F01D64237900C6A1E3 /* BlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				2E2C27F81D644D7700C6A1E3 /* SearchResultsObject.swift */,
 				2EE37D031D781545008A0BF0 /* SearchResultsStore.swift */,
 				2E2842431D9277F200EF68D6 /* Validation.swift */,
+				2E21B31E1F0CA15B00E96E8A /* FailAlerts.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				2E2CFBE31D51D62C00520726 /* itunes_lookup.xcdatamodeld in Sources */,
 				2E28423F1D92486D00EF68D6 /* Reachability.swift in Sources */,
 				2E2C27F71D6424BE00C6A1E3 /* Constants.swift in Sources */,
+				2E21B31F1F0CA15B00E96E8A /* FailAlerts.swift in Sources */,
 				2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */,
 				2EF227A61EF8F9BD00089E11 /* CustomTableCell.swift in Sources */,
 				2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */,

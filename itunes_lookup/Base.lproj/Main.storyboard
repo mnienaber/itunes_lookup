@@ -909,7 +909,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aIh-6N-3oy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AfY-yg-9Zg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AfY-yg-9Zg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -974,7 +974,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="qxp-sL-pJ9" id="iii-VF-QPS"/>
+                        <outlet property="tableView" destination="qxp-sL-pJ9" id="tv4-Ea-NrU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGf-6b-HB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -986,7 +986,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHp-G7-FMb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apa-l9-fpn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apa-l9-fpn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

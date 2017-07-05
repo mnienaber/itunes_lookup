@@ -47,28 +47,28 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
 
-        if error != nil {
+      if error != nil {
 
-            self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
-        } else if searchResultsDict?.count == 0 {
+          self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
+      } else if searchResultsDict?.count == 0 {
 
-            self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
-        } else {
+          self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
+      } else {
 
-            if let searchResultsDict = searchResultsDict {
+        if let searchResultsDict = searchResultsDict {
 
-                performUIUpdatesOnMain {
+          performUIUpdatesOnMain {
 
-                    for _ in SearchResultsStore.sharedInstance().searchResults {
+            for _ in SearchResultsStore.sharedInstance().searchResults {
 
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            self.tableView.reloadData()
-                        })
-                    }
+                DispatchQueue.main.async(execute: { () -> Void in
                     self.tableView.reloadData()
-                }
+                })
             }
+            self.tableView.reloadData()
+          }
         }
+      }
     }
   }
 

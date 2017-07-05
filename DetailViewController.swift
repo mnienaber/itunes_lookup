@@ -156,6 +156,10 @@ class DetailViewController: UIViewController {
 
   @IBAction func markButton(_ sender: Any) {
     print("markButton")
+
+    markAlertGeneral(title: "Bookmark this app?", message: "", actionTitle: "Mark it!", cancelTitle: "Cancel")
+
+
   }
 
     @IBAction func shareButton(_ sender: AnyObject) {
@@ -177,7 +181,7 @@ class DetailViewController: UIViewController {
     func downloadImage(url: URL) {
         print("Download Started")
       let urlRequest = NSURLRequest(url: url)
-      let urlConnection: NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
+      let _ : NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
       getDataFromUrl(url: url) { (data, response, error)  in
 
         DispatchQueue.main.sync() { () -> Void in
@@ -192,14 +196,29 @@ class DetailViewController: UIViewController {
 
       }
     }
+
 }
 
 extension DetailViewController {
 
-    func failAlertGeneral(title: String, message: String, actionTitle: String) {
+  func markAlertGeneral(title: String, message: String, actionTitle: String, cancelTitle: String) {
 
-        let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
-        self.present(failAlertGeneral, animated: true, completion: nil)
-    }
+    let markAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+
+    let actionTitle = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: {
+
+      (actionTitle: UIAlertAction!) in
+//
+//      let app = App(appName: self.searchObject?.trackName, descriptionText: self.searchObject?.description, devName: self.searchObject?.artistName, fileSize: self.searchObject?.fileSizeBytes, image: imageView.image, price: self.searchObject?.formattedPrice
+//        , rating: self.searchObject?.averageUserRatingForCurrentVersion, context: self.appDelegate.stack?.context)
+      print("mark")
+    })
+    let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {
+
+      (cancelTitle: UIAlertAction!) in print("cancel")
+    })
+      markAlertGeneral.addAction(actionTitle)
+      markAlertGeneral.addAction(cancelTitle)
+      self.present(markAlertGeneral, animated: true, completion: nil)
+  }
 }

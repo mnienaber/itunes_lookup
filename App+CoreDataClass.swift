@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-public class App: NSManagedObject {
+@objc(App)
+class App: NSManagedObject {
 
   convenience init(appName: String, descriptionText: String, devName: String, fileSize: Double, image: Data, price: String
     , rating: Double, context: NSManagedObjectContext) {
@@ -26,7 +27,5 @@ public class App: NSManagedObject {
     } else {
       fatalError("Unable to find Entity name!")
     }
-
   }
-
 }

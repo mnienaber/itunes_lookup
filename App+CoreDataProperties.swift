@@ -23,6 +23,4 @@ extension App {
     @NSManaged public var price: String?
     @NSManaged public var descriptionText: String?
     @NSManaged public var fileSize: Double
-    @NSManaged public var book: Book?
-
 }

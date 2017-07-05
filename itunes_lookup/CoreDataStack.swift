@@ -10,16 +10,17 @@ import Foundation
 import CoreData
 
 // MARK: - CoreDataStack
+
 struct CoreDataStack {
 
   // MARK: Properties
 
-  let model: NSManagedObjectModel
-  let coordinator: NSPersistentStoreCoordinator
-  let modelURL: URL
-  let dbURL: URL
-  let persistingContext: NSManagedObjectContext
-  let backgroundContext: NSManagedObjectContext
+  fileprivate let model: NSManagedObjectModel
+  fileprivate let coordinator: NSPersistentStoreCoordinator
+  fileprivate let modelURL: URL
+  fileprivate let dbURL: URL
+  fileprivate let persistingContext: NSManagedObjectContext
+  fileprivate let backgroundContext: NSManagedObjectContext
   let context: NSManagedObjectContext
 
   // MARK: Initializers
@@ -69,7 +70,7 @@ struct CoreDataStack {
     let options = [NSInferMappingModelAutomaticallyOption: true,NSMigratePersistentStoresAutomaticallyOption: true]
 
     do {
-      try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: options as [NSObject : AnyObject]?)
+      try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: options)
     } catch {
       print("unable to add store at \(dbURL)")
     }
@@ -77,23 +78,25 @@ struct CoreDataStack {
 
   // MARK: Utils
 
-  func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [NSObject:AnyObject]?) throws {
+  func addStoreCoordinator(_ storeType: String, configuration: String?, storeURL: URL, options : [AnyHashable: Any]?) throws {
     try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: dbURL, options: nil)
   }
 }
 
 // MARK: - CoreDataStack (Removing Data)
-internal extension CoreDataStack  {
+
+extension CoreDataStack  {
 
   func dropAllData() throws {
     // delete all the objects in the db. This won't delete the files, it will
     // just leave empty tables.
-    try coordinator.destroyPersistentStore(at: dbURL, ofType: NSSQLiteStoreType , options: nil)
+    try coordinator.destroyPersistentStore(at: dbURL, ofType:NSSQLiteStoreType , options: nil)
     try addStoreCoordinator(NSSQLiteStoreType, configuration: nil, storeURL: dbURL, options: nil)
   }
 }
 
 // MARK: - CoreDataStack (Batch Processing in the Background)
+
 extension CoreDataStack {
 
   typealias Batch = (_ workerContext: NSManagedObjectContext) -> ()
@@ -101,7 +104,6 @@ extension CoreDataStack {
   func performBackgroundBatchOperation(_ batch: @escaping Batch) {
 
     backgroundContext.perform() {
-
       batch(self.backgroundContext)
 
       // Save it to the parent context, so normal saving
@@ -115,7 +117,8 @@ extension CoreDataStack {
   }
 }
 
-// MARK: - CoreDataStack (Save Data)
+// MARK: - CoreDataStack (Save)
+
 extension CoreDataStack {
 
   func save() {
@@ -129,7 +132,6 @@ extension CoreDataStack {
       if self.context.hasChanges {
         do {
           try self.context.save()
-          print("context.save()")
         } catch {
           fatalError("Error while saving main context: \(error)")
         }
@@ -138,7 +140,6 @@ extension CoreDataStack {
         self.persistingContext.perform() {
           do {
             try self.persistingContext.save()
-            print("persistingContext.save()")
           } catch {
             fatalError("Error while saving persisting context: \(error)")
           }
@@ -147,15 +148,11 @@ extension CoreDataStack {
     }
   }
 
-  func autoSave(_ delayInSeconds : Int) {
+  func autoSave(_ delayInSeconds: Int) {
 
     if delayInSeconds > 0 {
-      do {
-        try self.context.save()
-        print("Autosaving")
-      } catch {
-        print("Error while autosaving")
-      }
+      print("Autosaving")
+      save()
 
       let delayInNanoSeconds = UInt64(delayInSeconds) * NSEC_PER_SEC
       let time = DispatchTime.now() + Double(Int64(delayInNanoSeconds)) / Double(NSEC_PER_SEC)
