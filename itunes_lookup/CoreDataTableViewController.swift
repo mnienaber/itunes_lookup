@@ -22,6 +22,7 @@ class CoreDataTableViewController: UITableViewController {
       fetchedResultsController?.delegate = self
       executeSearch()
       tableView.reloadData()
+      print("coredatatableview")
     }
   }
 
