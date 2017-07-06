@@ -20,7 +20,7 @@ class BookMarkedVC: CoreDataTableViewController {
 
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
     fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
-    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack?.context)!, sectionNameKeyPath: nil, cacheName: nil)
+    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,5 +38,4 @@ class BookMarkedVC: CoreDataTableViewController {
     // Return the cell
     return cell
   }
-
 }

@@ -21,36 +21,36 @@ class Client : NSObject {
 
     func taskForGETMethod(urlString: String, query: String, completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
         
-        let url = URL(string: urlString)
-        let request = URLRequest(url: url!)
+      let url = URL(string: urlString)
+      let request = URLRequest(url: url!)
 
-        let task = session.dataTask(with: request) { data, response, error in
-            
-            func sendError(_ error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
-            }
-            
-            guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
-                return
-            }
-            
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
-                return
-            }
-            
-            guard let data = data else {
-                sendError("No data was returned by the request!")
-                return
-            }
-            
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+      let task = session.dataTask(with: request) { data, response, error in
+
+        func sendError(_ error: String) {
+            print(error)
+            let userInfo = [NSLocalizedDescriptionKey : error]
+            completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
         }
-        task.resume()
-        return task
+        
+        guard (error == nil) else {
+            sendError("There was an error with your request: \(error)")
+            return
+        }
+        
+        guard let statusCode = (response as? HTTPURLResponse)?.statusCode , statusCode >= 200 && statusCode <= 299 else {
+            sendError("Your request returned a status code other than 2xx!")
+            return
+        }
+        
+        guard let data = data else {
+            sendError("No data was returned by the request!")
+            return
+        }
+        
+        self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
+      }
+      task.resume()
+      return task
         
     }
 
@@ -69,25 +69,11 @@ fileprivate func convertDataWithCompletionHandler(_ data: Data, completionHandle
 
 extension Client {
 
-    class func sharedInstance() -> Client {
-        struct Singleton {
-            static var sharedInstance = Client()
-        }
-        return Singleton.sharedInstance
+  class func sharedInstance() -> Client {
+    struct Singleton {
+      static var sharedInstance = Client()
     }
-
-    
+    return Singleton.sharedInstance
+  }
 }
-//
-//extension UIImageView {
-//
-//    func downloadImageFrom(link:String, contentMode: UIViewContentMode) {
-//        URLSession.shared.dataTask( with: URL(string:link)!, completionHandler: {
-//            (data, response, error) -> Void in
-//            DispatchQueue.main.async {
-//                self.contentMode =  contentMode
-//                if let data = data { self.image = UIImage(data: data) }
-//            }
-//        }).resume()
-//    }
-//}
+

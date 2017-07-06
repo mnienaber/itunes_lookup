@@ -9,9 +9,7 @@
 import Foundation
 import CoreData
 
-
 public class App: NSManagedObject {
-
 
   convenience init(appName: String, descriptionText: String, devName: String, fileSize: Double, image: Data, price: String
     , rating: Double, context: NSManagedObjectContext) {
@@ -20,7 +18,7 @@ public class App: NSManagedObject {
       self.init(entity: ent, insertInto: context)
       self.appName = appName
       self.descriptionText = descriptionText
-      self.image = image
+      self.image = image as NSData
       self.devName = devName
       self.fileSize = fileSize
       self.price = price

@@ -74,7 +74,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-      return SearchResultsStore.sharedInstance().searchResults.count
+    return SearchResultsStore.sharedInstance().searchResults.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -95,7 +95,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
   }
 
   func numberOfSections(in tableView: UITableView) -> Int {
-      return 1
+    return 1
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -108,18 +108,18 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-      SearchResultsStore.sharedInstance().searchResults = []
-      searchBar.resignFirstResponder()
+    SearchResultsStore.sharedInstance().searchResults = []
+    searchBar.resignFirstResponder()
 
-      let searchText = searchBar.text!
-      testApi(searchText)
-      self.tableView.reloadData()
+    let searchText = searchBar.text!
+    testApi(searchText)
+    self.tableView.reloadData()
   }
 
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 
-      searchBar.resignFirstResponder()
-      searchBar.text = ""
+    searchBar.resignFirstResponder()
+    searchBar.text = ""
   }
 }
 
@@ -127,9 +127,9 @@ extension ViewController {
 
   func failAlertGeneral(title: String, message: String, actionTitle: String) {
 
-      let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-      failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
-      self.present(failAlertGeneral, animated: true, completion: nil)
+    let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+    failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
+    self.present(failAlertGeneral, animated: true, completion: nil)
   }
 }
 
