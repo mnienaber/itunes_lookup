@@ -4,12 +4,12 @@
         <attribute name="appName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="descriptionText" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="devName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="fileSize" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="fileSize" optional="YES" attributeType="Transformable" indexed="YES" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" indexed="YES" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Transformable" indexed="YES" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="App" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="App" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>

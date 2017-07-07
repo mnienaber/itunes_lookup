@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
   var searchObject: SearchResultsDict?
   var shareableObject = [SearchResultsDict]()
   var trackIdText = String()
+  var image = Data()
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
   @IBOutlet weak var admobAd: GADBannerView!
@@ -191,7 +192,8 @@ class DetailViewController: UIViewController {
           print(response?.suggestedFilename ?? url.lastPathComponent)
           print("Download Finished")
           self.activityIndicator.isHidden = true
-          self.imageView.image = UIImage(data: data)
+          self.image = data
+          self.imageView.image = UIImage(data: self.image)
         }
 
       }
@@ -208,9 +210,15 @@ extension DetailViewController {
     let actionTitle = UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: {
 
       (actionTitle: UIAlertAction!) in
-//
-//      let app = App(appName: self.searchObject?.trackName, descriptionText: self.searchObject?.description, devName: self.searchObject?.artistName, fileSize: self.searchObject?.fileSizeBytes, image: imageView.image, price: self.searchObject?.formattedPrice
-//        , rating: self.searchObject?.averageUserRatingForCurrentVersion, context: self.appDelegate.stack?.context)
+
+      _ = App(appName: self.searchObject?.trackName as! String,
+              descriptionText: self.searchObject?.description as! String,
+              devName: self.searchObject?.artistName as! String,
+              fileSize: (self.searchObject?.fileSizeBytes)! as! Double,
+              image: self.image,
+              price: self.searchObject?.formattedPrice as AnyObject,
+              rating: self.searchObject?.averageUserRatingForCurrentVersion as! Double,
+              context: self.appDelegate.stack.context)
       print("mark")
     })
     let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {

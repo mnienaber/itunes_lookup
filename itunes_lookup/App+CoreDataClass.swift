@@ -11,7 +11,7 @@ import CoreData
 
 public class App: NSManagedObject {
 
-  convenience init(appName: String, descriptionText: String, devName: String, fileSize: Double, image: Data, price: String
+  convenience init(appName: String, descriptionText: String, devName: String, fileSize: Double, image: Data, price: AnyObject
     , rating: Double, context: NSManagedObjectContext) {
 
     if let ent = NSEntityDescription.entity(forEntityName: "App", in: context) {
@@ -20,7 +20,7 @@ public class App: NSManagedObject {
       self.descriptionText = descriptionText
       self.image = image as NSData
       self.devName = devName
-      self.fileSize = fileSize
+      self.fileSize = fileSize as AnyObject
       self.price = price
       self.rating = rating
     } else {

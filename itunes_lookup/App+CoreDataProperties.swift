@@ -19,9 +19,9 @@ extension App {
     @NSManaged public var appName: String?
     @NSManaged public var descriptionText: String?
     @NSManaged public var devName: String?
-    @NSManaged public var fileSize: Double
+    @NSManaged public var fileSize: AnyObject?
     @NSManaged public var image: NSData?
-    @NSManaged public var price: String?
+    @NSManaged public var price: AnyObject?
     @NSManaged public var rating: Double
 
 }
