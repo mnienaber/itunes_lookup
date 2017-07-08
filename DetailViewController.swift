@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import GoogleMobileAds
+import CoreData
 
 class DetailViewController: UIViewController {
 
@@ -49,20 +50,24 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        activityIndicator.isHidden = false
-//        admobAd.adUnitID = "ca-app-pub-6219811747049371/7793655040"
-//        admobAd.rootViewController = self
-//        admobAd.load(GADRequest())
-        self.automaticallyAdjustsScrollViewInsets = false
-        appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print(searchObject)
-        if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
+      super.viewDidLoad()
+      activityIndicator.isHidden = false
+      self.automaticallyAdjustsScrollViewInsets = false
+      appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-            imageView.contentMode = .scaleAspectFit
-            downloadImage(url: checkedUrl)
-        }
-    }
+      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+      //fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+      print("fr: \(fr)")
+      //print(fetchedResultsController)
+
+
+      //print(searchObject)
+      if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
+
+          imageView.contentMode = .scaleAspectFit
+          downloadImage(url: checkedUrl)
+      }
+  }
 
     override func viewWillAppear(_ animated: Bool) {
 
@@ -211,15 +216,17 @@ extension DetailViewController {
 
       (actionTitle: UIAlertAction!) in
 
-      _ = App(appName: self.searchObject?.trackName as! String,
+      let app = App(appName: self.searchObject?.trackName as! String,
               descriptionText: self.searchObject?.description as! String,
               devName: self.searchObject?.artistName as! String,
-              fileSize: (self.searchObject?.fileSizeBytes)! as! Double,
+              fileSize: (self.searchObject?.fileSizeBytes)! as! String,
               image: self.image,
-              price: self.searchObject?.formattedPrice as AnyObject,
-              rating: self.searchObject?.averageUserRatingForCurrentVersion as! Double,
+              price: self.searchObject?.formattedPrice as! String,
+              rating: self.searchObject?.averageUserRatingForCurrentVersion as AnyObject,
               context: self.appDelegate.stack.context)
-      print("mark")
+      print(app)
+      print(self.appDelegate.stack.context)
+      self.appDelegate.stack.save()
     })
     let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {
 

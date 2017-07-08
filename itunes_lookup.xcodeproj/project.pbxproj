@@ -115,6 +115,7 @@
 		2E2E85F61DA38B610074A70C /* libnfshared.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libnfshared.tbd; path = usr/lib/libnfshared.tbd; sourceTree = SDKROOT; };
 		2E761E5A1F0E491B00AF393B /* App+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E761E5C1F0E493200AF393B /* App+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2E761E641F1090AF00AF393B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		2EE269291F0A627200BC91F3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -899,6 +900,7 @@
 		2E2CFBE11D51D62C00520726 /* itunes_lookup.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2E761E641F1090AF00AF393B /* Model.xcdatamodel */,
 				2E2CFBE21D51D62C00520726 /* itunes_lookup.xcdatamodel */,
 			);
 			currentVersion = 2E2CFBE21D51D62C00520726 /* itunes_lookup.xcdatamodel */;

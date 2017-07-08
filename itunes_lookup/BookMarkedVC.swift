@@ -21,6 +21,7 @@ class BookMarkedVC: CoreDataTableViewController {
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
     fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
     fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
+    print(self.fetchedResultsController?.fetchedObjects)
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -33,6 +34,7 @@ class BookMarkedVC: CoreDataTableViewController {
 
     // Sync note -> cell
     cell.textLabel?.text = app.appName
+    cell.imageView?.image = UIImage(data: app.image as! Data)
     //cell.imageView?.image = app.image
 
     // Return the cell
