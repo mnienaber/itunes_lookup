@@ -44,11 +44,17 @@ class BookMarkedVC: CoreDataTableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    print(fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]))
+    destVC.appNameString = fetchedResultsController?.object(at: IndexPath) as! App
 
-//    let controller = storyboard!.instantiateViewController(withIdentifier: "MarkedDetailVC") as! DetailBookMarkedVC
-//    controller.detailApp = fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]) as! App
-//    navigationController!.pushViewController(controller, animated: true)
+    performSegue(withIdentifier: "segue", sender: self)
+//  }
+
+  func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    if segue.identifier == "segue" {
+      let destVC = segue.destination as! DetailBookMarkedVC
+
+
+    }
   }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -64,19 +70,13 @@ class BookMarkedVC: CoreDataTableViewController {
         print("Unable to Perform Fetch Request")
         print("\(fetchError), \(fetchError.localizedDescription)")
       }
-//      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-//      fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
-//      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
 
       performUIUpdatesOnMain {
         
         print("sections: \(self.fetchedResultsController?.fetchedObjects?.count)")
         tableView.reloadData()
       }
-
-
     }
-
   }
 }
 

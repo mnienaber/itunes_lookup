@@ -8,12 +8,16 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class DetailBookMarkedVC: UIViewController {
+class DetailBookMarkedVC: CoreDataTableViewController {
 
   var detailApp = App()
+  var appNameString = String()
   var shareableApp = [App]()
+  let delegate = UIApplication.shared.delegate as! AppDelegate
 
+  @IBOutlet weak var descriptionText: UITextView!
   @IBOutlet weak var artistNameText: UITextField!
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var size: UITextField!
@@ -23,6 +27,11 @@ class DetailBookMarkedVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+    fr.predicate = NSPredicate(format: "appName = %@", appNameString)
+    //fr.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.delegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -32,6 +41,6 @@ class DetailBookMarkedVC: UIViewController {
     rating.isEnabled = false
     price.isEnabled = false
 
-    print("detailApp: \(detailApp)")
+    print("detailApp: \(detailApp.appName)")
   }
 }

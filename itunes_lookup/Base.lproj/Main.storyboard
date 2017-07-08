@@ -9,6 +9,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -146,7 +147,10 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="eao-dx-C7b" kind="show" identifier="MarkedDetailVC" id="SZ2-nJ-y3W"/>
+                                    <segue destination="eao-dx-C7b" kind="show" identifier="segue" id="qqm-Di-Czg">
+                                        <segue key="commit" inheritsFrom="parent" id="kQo-L9-BLD"/>
+                                        <segue key="preview" inheritsFrom="commit" id="yNT-yA-uDj"/>
+                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1114,10 +1118,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="4e4-92-AkH" id="Otq-cU-beB"/>
                         <outlet property="artistNameText" destination="A0r-Xb-VFY" id="RWO-iV-OXb"/>
-                        <outlet property="averageUserRatingForCurrentVersion" destination="Xaw-Hp-C2y" id="QgD-o1-2oS"/>
-                        <outlet property="descripTion" destination="zUh-Me-kMy" id="cRH-mG-nQm"/>
-                        <outlet property="fileSizeBytes" destination="5Oh-JB-gfg" id="2Ya-hu-FFJ"/>
-                        <outlet property="formattedPriceText" destination="Hry-cf-eGF" id="ykG-QC-UH5"/>
+                        <outlet property="descriptionText" destination="zUh-Me-kMy" id="Y9X-Ju-VGD"/>
                         <outlet property="imageView" destination="Ofy-LP-DeE" id="NnD-Ck-ZDv"/>
                         <outlet property="price" destination="Hry-cf-eGF" id="Nhc-Zk-5Km"/>
                         <outlet property="rating" destination="Xaw-Hp-C2y" id="wlT-Pw-CRr"/>
@@ -1133,4 +1134,7 @@
         <image name="Back" width="24" height="24"/>
         <image name="share" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qqm-Di-Czg"/>
+    </inferredMetricsTieBreakers>
 </document>
