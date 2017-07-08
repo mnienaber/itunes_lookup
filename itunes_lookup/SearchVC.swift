@@ -102,7 +102,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     let controller = storyboard!.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
     controller.searchObject = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
-    print(controller.searchObject)
     navigationController!.pushViewController(controller, animated: true)
   }
 

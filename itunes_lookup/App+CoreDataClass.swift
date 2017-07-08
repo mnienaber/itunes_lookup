@@ -18,7 +18,7 @@ public class App: NSManagedObject {
       self.init(entity: ent, insertInto: context)
       self.appName = appName
       self.descriptionText = descriptionText
-      self.image = image as NSData
+      self.image = image as Data
       self.devName = devName
       self.fileSize = fileSize as String
       self.price = price

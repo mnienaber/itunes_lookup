@@ -55,9 +55,9 @@ class DetailViewController: UIViewController {
       self.automaticallyAdjustsScrollViewInsets = false
       appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-      //fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
-      print("fr: \(fr)")
+//      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+//      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+//      print("fr: \(fr)")
       //print(fetchedResultsController)
 
 

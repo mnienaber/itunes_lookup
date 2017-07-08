@@ -20,7 +20,7 @@ extension App {
     @NSManaged public var descriptionText: String?
     @NSManaged public var devName: String?
     @NSManaged public var fileSize: String?
-    @NSManaged public var image: NSData?
+    @NSManaged public var image: Data?
     @NSManaged public var price: String?
     @NSManaged public var rating: AnyObject?
 

@@ -14,30 +14,59 @@ import CoreData
 class BookMarkedVC: CoreDataTableViewController {
 
   let delegate = UIApplication.shared.delegate as! AppDelegate
+  var segueApp = App()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    tableView.delegate = self
+    tableView.dataSource = self
+
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
     fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
     fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
-    print(self.fetchedResultsController?.fetchedObjects)
+    print("sections: \(self.fetchedResultsController?.fetchedObjects?.count)")
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    // Get the app
     let app = fetchedResultsController?.object(at: indexPath) as! App
-
-    // Get the cell
     let cell = tableView.dequeueReusableCell(withIdentifier: "App", for: indexPath)
 
-    // Sync note -> cell
     cell.textLabel?.text = app.appName
-    cell.imageView?.image = UIImage(data: app.image as! Data)
-    //cell.imageView?.image = app.image
+    //TODO: insert icon image without crashing
+    //cell.imageView?.image = UIImage(data: app.image!)
 
-    // Return the cell
+
     return cell
   }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    let controller = storyboard!.instantiateViewController(withIdentifier: "MarkedDetailVC") as! DetailBookMarkedVC
+    controller.detailApp = fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]) as! App
+    navigationController!.pushViewController(controller, animated: true)
+  }
+
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+    if editingStyle == .delete {
+      print(fetchedResultsController?.object(at: indexPath))
+      self.delegate.stack.context.delete(fetchedResultsController?.object(at: indexPath) as! NSManagedObject)
+      self.delegate.stack.save()
+      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+      fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
+      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
+
+      performUIUpdatesOnMain {
+        
+        print("sections: \(self.fetchedResultsController?.fetchedObjects?.count)")
+        tableView.reloadData()
+      }
+
+
+    }
+
+  }
 }
+
