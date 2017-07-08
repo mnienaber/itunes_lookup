@@ -25,6 +25,7 @@ class BookMarkedVC: CoreDataTableViewController {
     let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
     fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
     fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
+
     print("sections: \(self.fetchedResultsController?.fetchedObjects?.count)")
   }
 
@@ -43,9 +44,11 @@ class BookMarkedVC: CoreDataTableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    let controller = storyboard!.instantiateViewController(withIdentifier: "MarkedDetailVC") as! DetailBookMarkedVC
-    controller.detailApp = fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]) as! App
-    navigationController!.pushViewController(controller, animated: true)
+    print(fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]))
+
+//    let controller = storyboard!.instantiateViewController(withIdentifier: "MarkedDetailVC") as! DetailBookMarkedVC
+//    controller.detailApp = fetchedResultsController?.object(at:[(indexPath as NSIndexPath).row]) as! App
+//    navigationController!.pushViewController(controller, animated: true)
   }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -54,9 +57,16 @@ class BookMarkedVC: CoreDataTableViewController {
       print(fetchedResultsController?.object(at: indexPath))
       self.delegate.stack.context.delete(fetchedResultsController?.object(at: indexPath) as! NSManagedObject)
       self.delegate.stack.save()
-      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-      fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
-      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
+      do {
+        try self.fetchedResultsController?.performFetch()
+      } catch {
+        let fetchError = error as NSError
+        print("Unable to Perform Fetch Request")
+        print("\(fetchError), \(fetchError.localizedDescription)")
+      }
+//      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+//      fr.sortDescriptors = [NSSortDescriptor(key: "appName", ascending: true)]
+//      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: (self.delegate.stack.context), sectionNameKeyPath: nil, cacheName: nil)
 
       performUIUpdatesOnMain {
         
