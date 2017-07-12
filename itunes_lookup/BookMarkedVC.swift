@@ -44,18 +44,22 @@ class BookMarkedVC: CoreDataTableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-    destVC.appNameString = fetchedResultsController?.object(at: IndexPath) as! App
+    segueApp = fetchedResultsController?.object(at: indexPath) as! App
+    print("didselect_segueApp:  \(segueApp)")
 
-    performSegue(withIdentifier: "segue", sender: self)
+//    performSegue(withIdentifier: "segue", sender: self)
+
+  }
+
+//  override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//    if segue.identifier == "segue" {
+//      let destVC = segue.destination as! DetailBookMarkedVC
+//      destVC.detailApp = segueApp
+//      print("destVC.detailApp:  \(destVC.detailApp)")
+//
+//    }
 //  }
 
-  func prepare(for segue: UIStoryboardSegue, sender: Any?){
-    if segue.identifier == "segue" {
-      let destVC = segue.destination as! DetailBookMarkedVC
-
-
-    }
-  }
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 
@@ -79,4 +83,5 @@ class BookMarkedVC: CoreDataTableViewController {
     }
   }
 }
+
 

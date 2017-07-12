@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class DetailBookMarkedVC: CoreDataTableViewController {
+class DetailBookMarkedVC: UIViewController {
 
   var detailApp = App()
   var appNameString = String()
@@ -27,14 +27,15 @@ class DetailBookMarkedVC: CoreDataTableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    print("here i am: \(detailApp)")
 
-    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-    fr.predicate = NSPredicate(format: "appName = %@", appNameString)
-    //fr.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.delegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
-  }
+//    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+//    fr.predicate = NSPredicate(format: "appName = %@", appNameString)
+//    //fr.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+//    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.delegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
+//  }
 
-  override func viewWillAppear(_ animated: Bool) {
+  func viewWillAppear(_ animated: Bool) {
     activityIndicator.isHidden = false
     artistNameText.isEnabled = false
     size.isEnabled = false
@@ -43,4 +44,5 @@ class DetailBookMarkedVC: CoreDataTableViewController {
 
     print("detailApp: \(detailApp.appName)")
   }
+}
 }

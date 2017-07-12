@@ -45,7 +45,7 @@
 		2E2CFBFE1D51D62C00520726 /* itunes_lookupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2CFBFD1D51D62C00520726 /* itunes_lookupUITests.swift */; };
 		2E761E5B1F0E491B00AF393B /* App+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E761E5A1F0E491B00AF393B /* App+CoreDataProperties.swift */; };
 		2E761E5D1F0E493200AF393B /* App+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E761E5C1F0E493200AF393B /* App+CoreDataClass.swift */; };
-		2E761E661F111DD800AF393B /* DetailBookMarketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E761E651F111DD800AF393B /* DetailBookMarketVC.swift */; };
+		2E761E661F111DD800AF393B /* DetailBookMarkedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E761E651F111DD800AF393B /* DetailBookMarkedVC.swift */; };
 		2EADF0651DB46FF400105D79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */; };
 		2EE269281F0A595500BC91F3 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */; };
 		2EE2692A1F0A627200BC91F3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE269291F0A627200BC91F3 /* CoreDataStack.swift */; };
@@ -117,7 +117,7 @@
 		2E761E5A1F0E491B00AF393B /* App+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E761E5C1F0E493200AF393B /* App+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E761E641F1090AF00AF393B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		2E761E651F111DD800AF393B /* DetailBookMarketVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBookMarketVC.swift; sourceTree = "<group>"; };
+		2E761E651F111DD800AF393B /* DetailBookMarkedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailBookMarkedVC.swift; sourceTree = "<group>"; };
 		2EADF0641DB46FF400105D79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2EE269271F0A595500BC91F3 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		2EE269291F0A627200BC91F3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */,
 				2EF227A51EF8F9BD00089E11 /* CustomTableCell.swift */,
 				2EF227A71F035F2400089E11 /* BookMarkedVC.swift */,
-				2E761E651F111DD800AF393B /* DetailBookMarketVC.swift */,
+				2E761E651F111DD800AF393B /* DetailBookMarkedVC.swift */,
 				2EE2692B1F0A68BD00BC91F3 /* BookMarkedCell.swift */,
 			);
 			name = View;
@@ -632,7 +632,7 @@
 				2E21B31F1F0CA15B00E96E8A /* FailAlerts.swift in Sources */,
 				2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */,
 				2EF227A61EF8F9BD00089E11 /* CustomTableCell.swift in Sources */,
-				2E761E661F111DD800AF393B /* DetailBookMarketVC.swift in Sources */,
+				2E761E661F111DD800AF393B /* DetailBookMarkedVC.swift in Sources */,
 				2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */,
 				2E2842441D9277F200EF68D6 /* Validation.swift in Sources */,
 				2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */,

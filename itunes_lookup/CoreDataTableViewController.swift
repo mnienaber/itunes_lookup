@@ -104,7 +104,7 @@ extension CoreDataTableViewController {
       do {
         try fc.performFetch()
       } catch let e as NSError {
-        print("Error while trying to perform a search: \n\(e)\n\(fetchedResultsController)")
+        print("Error while trying to perform a search: \n\(e)\n\(String(describing: fetchedResultsController))")
       }
     }
   }
@@ -114,7 +114,7 @@ extension CoreDataTableViewController {
 
 extension CoreDataTableViewController: NSFetchedResultsControllerDelegate{
 
-  func controllerWillChangeContent(controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.beginUpdates()
   }
 
@@ -134,7 +134,7 @@ extension CoreDataTableViewController: NSFetchedResultsControllerDelegate{
   }
 
 
-  func controller(controller: NSFetchedResultsController<NSFetchRequestResult>, didChangeObject anObject: AnyObject,atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType,newIndexPath: NSIndexPath?) {
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any,at indexPath: IndexPath?, for type: NSFetchedResultsChangeType,newIndexPath: IndexPath?) {
 
     switch(type) {
 
@@ -150,7 +150,7 @@ extension CoreDataTableViewController: NSFetchedResultsControllerDelegate{
     }
   }
 
-  func controllerDidChangeContent(controller: NSFetchedResultsController<NSFetchRequestResult>) {
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     tableView.endUpdates()
   }
 }
