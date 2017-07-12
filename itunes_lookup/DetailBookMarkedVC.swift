@@ -14,7 +14,6 @@ class DetailBookMarkedVC: UIViewController {
 
   var detailApp = App()
   var appNameString = String()
-  var shareableApp = [App]()
   let delegate = UIApplication.shared.delegate as! AppDelegate
 
   @IBOutlet weak var descriptionText: UITextView!
@@ -25,24 +24,29 @@ class DetailBookMarkedVC: UIViewController {
   @IBOutlet weak var rating: UITextField!
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("here i am: \(detailApp)")
+    print("here i am: \(detailApp.appName))")
+    let app = NSEntityDescription.insertNewObject(forEntityName: "App", into: self.delegate.stack.context) as? App
+    print(app)
+//      descriptionText.text = detailApp.descriptionText! + "\u{2b50}"
+//      imageView.image = UIImage(data: detailApp.image!)
+//      size.text = String(describing: detailApp.fileSize) + "mb"
+//      price.text = detailApp.price
+//      rating.text = detailApp.rating as? String
+//      artistNameText.text = detailApp.appName
+    }
 
-//    let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-//    fr.predicate = NSPredicate(format: "appName = %@", appNameString)
-//    //fr.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//    fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.delegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
-//  }
 
-  func viewWillAppear(_ animated: Bool) {
-    activityIndicator.isHidden = false
+  override func viewWillAppear(_ animated: Bool) {
     artistNameText.isEnabled = false
     size.isEnabled = false
     rating.isEnabled = false
     price.isEnabled = false
 
-    print("detailApp: \(detailApp.appName)")
+    print("detailApp: \(detailApp)")
+
+
   }
-}
 }
