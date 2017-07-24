@@ -52,6 +52,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       activityIndicator.isHidden = false
+      activityIndicator.startAnimating()
       self.automaticallyAdjustsScrollViewInsets = false
       appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -197,6 +198,7 @@ class DetailViewController: UIViewController {
           print(response?.suggestedFilename ?? url.lastPathComponent)
           print("Download Finished")
           self.activityIndicator.isHidden = true
+          self.activityIndicator.stopAnimating()
           self.image = data
           self.imageView.image = UIImage(data: self.image)
         }
