@@ -958,7 +958,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aIh-6N-3oy" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AfY-yg-9Zg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AfY-yg-9Zg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -976,7 +976,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHp-G7-FMb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apa-l9-fpn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apa-l9-fpn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1023,6 +1023,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="22"/>
                                 <state key="normal" title="Download at the App Store"/>
                                 <connections>
+                                    <action selector="downLoadButton:" destination="eao-dx-C7b" eventType="touchUpInside" id="dPO-bs-sxM"/>
                                     <action selector="moreButton:" destination="eao-dx-C7b" eventType="touchUpInside" id="Kjr-4T-TpT"/>
                                 </connections>
                             </button>

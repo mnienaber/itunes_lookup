@@ -219,10 +219,11 @@ extension DetailViewController {
       let app = App(appName: self.searchObject?.trackName as! String,
               descriptionText: self.searchObject?.description as! String,
               devName: self.searchObject?.artistName as! String,
-              fileSize: (self.searchObject?.fileSizeBytes)! as! String,
+              fileSize: (self.searchObject?.fileSizeBytes)!,
               image: self.image,
               price: self.searchObject?.formattedPrice as! String,
               rating: self.searchObject?.averageUserRatingForCurrentVersion as AnyObject,
+              url: self.searchObject?.trackViewUrl as! URL,
               context: self.appDelegate.stack.context)
       print(app)
       print(self.appDelegate.stack.context)

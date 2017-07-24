@@ -46,20 +46,12 @@ class BookMarkedVC: CoreDataTableViewController {
 
     segueApp = fetchedResultsController?.object(at: indexPath) as! App
     print("didselect_segueApp:  \(segueApp)")
-
+    Client.sharedInstance().segueApp.removeAll()
+    Client.sharedInstance().segueApp = [segueApp]
 //    performSegue(withIdentifier: "segue", sender: self)
+    print(Client.sharedInstance().segueApp)
 
   }
-
-//  override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//    if segue.identifier == "segue" {
-//      let destVC = segue.destination as! DetailBookMarkedVC
-//      destVC.detailApp = segueApp
-//      print("destVC.detailApp:  \(destVC.detailApp)")
-//
-//    }
-//  }
-
 
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 

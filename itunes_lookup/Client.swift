@@ -11,8 +11,9 @@ import UIKit
 
 class Client : NSObject {
     
-    var session = URLSession.shared
-    var appDelegate: AppDelegate!
+  var session = URLSession.shared
+  var appDelegate: AppDelegate!
+  var segueApp = [App]()
     
     
     override init() {

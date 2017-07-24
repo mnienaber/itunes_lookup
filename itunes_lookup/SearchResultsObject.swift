@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-//var searchResultsObjects = [SearchResultsDict]()
-//var searchResultsObjDictionary = [String: AnyObject]()
-
 struct SearchResultsDict {
 
   let artistName: AnyObject
@@ -36,6 +33,7 @@ struct SearchResultsDict {
   let features: AnyObject
   let sellerName: AnyObject
   let artworkUrl60Text: AnyObject
+  let trackViewUrl: AnyObject
 
   init?(dictionary: [String: AnyObject]) {
 
@@ -83,6 +81,8 @@ struct SearchResultsDict {
     sellerName = sName
     guard let art = (dictionary[Client.Constants.SearchResults.ArtworkUrl60] as AnyObject!) else { return nil }
     artworkUrl60Text = art
+    guard let trk = (dictionary[Client.Constants.SearchResults.TrackViewUrl] as AnyObject!) else { return nil }
+    trackViewUrl = trk
   }
 
   static func SLOFromResults(results: [[String:AnyObject]]) -> [SearchResultsDict] {

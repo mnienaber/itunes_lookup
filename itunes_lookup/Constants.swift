@@ -49,6 +49,7 @@ extension Client {
           static let TrackCensoredName = "trackCensoredName"
           static let Features = "features"
           static let SellerName = "sellerName"
+          static let TrackViewUrl = "trackViewUrl"
       }
   }
 }

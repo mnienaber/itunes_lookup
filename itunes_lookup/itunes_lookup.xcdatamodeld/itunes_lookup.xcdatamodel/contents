@@ -8,8 +8,9 @@
         <attribute name="image" optional="YES" attributeType="Binary" indexed="YES" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" indexed="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="App" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="App" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

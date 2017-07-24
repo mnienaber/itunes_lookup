@@ -12,7 +12,6 @@ import CoreData
 
 class DetailBookMarkedVC: UIViewController {
 
-  var detailApp = App()
   var appNameString = String()
   let delegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -27,15 +26,17 @@ class DetailBookMarkedVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("here i am: \(detailApp.appName))")
-    let app = NSEntityDescription.insertNewObject(forEntityName: "App", into: self.delegate.stack.context) as? App
-    print(app)
-//      descriptionText.text = detailApp.descriptionText! + "\u{2b50}"
-//      imageView.image = UIImage(data: detailApp.image!)
-//      size.text = String(describing: detailApp.fileSize) + "mb"
-//      price.text = detailApp.price
-//      rating.text = detailApp.rating as? String
-//      artistNameText.text = detailApp.appName
+
+    let app = Client.sharedInstance().segueApp.first
+    print(app!)
+    descriptionText.text = (app?.descriptionText!)!
+    imageView.image = UIImage(data: (app?.image!)!)
+    let fsize = ((app?.fileSize)?.integerValue)! / 1000000
+    size.text = String(describing: fsize) + "mb"
+    price.text = app?.price
+    rating.text = (app?.rating?.description)! + "\u{2b50}"
+    artistNameText.text = app?.appName
+    activityIndicator.isHidden = true
     }
 
 
@@ -45,8 +46,14 @@ class DetailBookMarkedVC: UIViewController {
     rating.isEnabled = false
     price.isEnabled = false
 
-    print("detailApp: \(detailApp)")
+  }
+  @IBAction func downLoadButton(_ sender: Any) {
 
-
+    let app = UIApplication.shared
+//    if let objectForUrl = URL(String: Client.sharedInstance().segueApp.first?.url) {
+//      let url = objectForUrl
+//    }
+    app.openURL((Client.sharedInstance().segueApp.first?.url)!)
+    print("off to iTunes")
   }
 }
