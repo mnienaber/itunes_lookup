@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "87BED7ED98679B86DB7D85BB0B7167C949A2077B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9F4F938593578AAF8F526588E6AF5C46F492B420" : 9223372036854775807,
+    "87BED7ED98679B86DB7D85BB0B7167C949A2077B" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F1684E6E-EFCE-488F-AD33-F080ED846EEB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9F4F938593578AAF8F526588E6AF5C46F492B420" : "itunes_lookup\/Google-Material-Design-Icons-Swift\/",
+    "87BED7ED98679B86DB7D85BB0B7167C949A2077B" : "itunes_lookup\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "itunes_lookup",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "itunes_lookup.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mnienaber\/itunes_lookup.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "87BED7ED98679B86DB7D85BB0B7167C949A2077B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:Vaberer\/Google-Material-Design-Icons-Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F4F938593578AAF8F526588E6AF5C46F492B420"
+    }
+  ]
+}
