@@ -225,7 +225,7 @@ extension DetailViewController {
               image: self.image,
               price: self.searchObject?.formattedPrice as! String,
               rating: self.searchObject?.averageUserRatingForCurrentVersion as AnyObject,
-              url: self.searchObject?.trackViewUrl as! URL,
+              url: self.searchObject?.trackViewUrl as AnyObject,
               context: self.appDelegate.stack.context)
       print(app)
       print(self.appDelegate.stack.context)

@@ -23,5 +23,5 @@ extension App {
   @NSManaged public var image: Data?
   @NSManaged public var price: String?
   @NSManaged public var rating: AnyObject?
-  @NSManaged public var url: URL?
+  @NSManaged public var url: AnyObject?
 }

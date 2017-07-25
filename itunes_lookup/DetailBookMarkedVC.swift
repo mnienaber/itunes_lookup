@@ -49,11 +49,10 @@ class DetailBookMarkedVC: UIViewController {
   }
   @IBAction func downLoadButton(_ sender: Any) {
 
-    let app = UIApplication.shared
-//    if let objectForUrl = URL(String: Client.sharedInstance().segueApp.first?.url) {
-//      let url = objectForUrl
-//    }
-    app.openURL((Client.sharedInstance().segueApp.first?.url)!)
+    if let url = URL(string: (Client.sharedInstance().segueApp.first?.url)! as! String){
+      print(url)
+      UIApplication.shared.openURL(url)
+    }
     print("off to iTunes")
   }
 }

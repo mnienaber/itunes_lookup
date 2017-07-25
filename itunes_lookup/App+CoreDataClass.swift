@@ -12,7 +12,7 @@ import CoreData
 public class App: NSManagedObject {
 
   convenience init(appName: String, descriptionText: String, devName: String, fileSize: AnyObject, image: Data, price: String
-    , rating: AnyObject, url: URL, context: NSManagedObjectContext) {
+    , rating: AnyObject, url: AnyObject, context: NSManagedObjectContext) {
 
     if let ent = NSEntityDescription.entity(forEntityName: "App", in: context) {
       self.init(entity: ent, insertInto: context)
@@ -23,7 +23,7 @@ public class App: NSManagedObject {
       self.fileSize = fileSize as AnyObject
       self.price = price
       self.rating = rating as AnyObject
-      self.url = url as URL
+      self.url = url as AnyObject
     } else {
       fatalError("Unable to find Entity name!")
     }
