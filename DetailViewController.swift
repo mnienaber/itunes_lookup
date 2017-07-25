@@ -25,7 +25,6 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var devLabel: UILabel!
   @IBOutlet weak var artistNameText: UITextField!
   @IBOutlet weak var bundleIdText: UITextField!
-//    @IBOutlet weak var trackIdText: String!
   @IBOutlet weak var releaseDateText: UITextField!
   @IBOutlet weak var currentVersionReleaseDateText: UITextField!
   @IBOutlet weak var languageCodesISO2A: UITextField!
@@ -39,8 +38,6 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var userRatingCount: UITextField!
   @IBOutlet weak var fileSizeBytes: UITextField!
   @IBOutlet weak var supportedDevices: UITextField!
-//    @IBOutlet weak var descripTion: UITextField!
-
   @IBOutlet weak var descripTion: UITextView!
   @IBOutlet weak var backButton: UIBarButtonItem!
   @IBOutlet weak var kind: UITextField!
@@ -56,13 +53,6 @@ class DetailViewController: UIViewController {
       self.automaticallyAdjustsScrollViewInsets = false
       appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-//      let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
-//      fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: self.appDelegate.stack.context, sectionNameKeyPath: nil, cacheName: nil)
-//      print("fr: \(fr)")
-      //print(fetchedResultsController)
-
-
-      //print(searchObject)
       if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
 
           imageView.contentMode = .scaleAspectFit
@@ -74,53 +64,21 @@ class DetailViewController: UIViewController {
 
       if let object = searchObject {
 
-          shareableObject = [object]
+        shareableObject = [object]
 
-          artistNameText.isEnabled = false
-//            bundleIdText.isEnabled = false
-//            trackIdText.isEnabled = false
-//            versionText.isEnabled = false
-//            releaseDateText.isEnabled = false
-//            currentVersionReleaseDateText.isEnabled = false
-//            languageCodesISO2A.isEnabled = false
-//            currencyText.isEnabled = false
-//            primaryGenreName.isEnabled = false
-//            minimumOsVersion.isEnabled = false
-//            averageUserRatingForCurrentVersion.isEnabled = false
-//            userRatingCount.isEnabled = false
-          fileSizeBytes.isEnabled = false
-//            supportedDevices.isEnabled = false
-          formattedPriceText.isEnabled = false
-//          descripTion.isEnabled = false
-//            kind.isEnabled = false
-//            contentRating.isEnabled = false
-//            features.isEnabled = false
-//            sellerName.isEnabled = false
-//
-          artistNameText.text = object.artistName as? String
-//            bundleIdText.text = object.bundleId as? String
-            trackIdText = object.trackId.description
-//            versionText.text = object.version as? String
-//            releaseDateText.text = object.releaseDate as? String
-//            currentVersionReleaseDateText.text = object.currentVersionReleaseDate as? String
-//            languageCodesISO2A.text = object.languageCodesISO2A.componentsJoined(by: ", ")
-          formattedPriceText.text = object.formattedPrice as? String
-//            currencyText.text = object.currency as? String
-//            minimumOsVersion.text = object.minimumOsVersion as? String
-//            primaryGenreName.text = object.primaryGenreName as? String
+        artistNameText.isEnabled = false
+        fileSizeBytes.isEnabled = false
+        formattedPriceText.isEnabled = false//
+        artistNameText.text = object.artistName as? String
+          trackIdText = object.trackId.description
+        formattedPriceText.text = object.formattedPrice as? String
         averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description + "\u{2b50}"
-          let fsize = ((object.fileSizeBytes).integerValue) / 1000000
-          fileSizeBytes.text = String(describing: fsize) + "mb"
-//            supportedDevices.text = object.supportedDevices.componentsJoined(by: ", ")
-          descripTion.text = object.description as? String
-//            userRatingCount.text = object.userRatingCount.description
-//            kind.text = object.kind as? String
-//            contentRating.text = object.trackContentRating as? String
-//            features.text = object.features.componentsJoined(by: ", ")
-//            sellerName.text = object.sellerName as? String
-          navigationItem.title = object.trackName as? String
-        }
-    }
+        let fsize = ((object.fileSizeBytes).integerValue) / 1000000
+        fileSizeBytes.text = String(describing: fsize) + "mb"
+        descripTion.text = object.description as? String
+        navigationItem.title = object.trackName as? String
+      }
+  }
 
     func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
         print("canAuthenticateAgainstProtectionSpace method Returning True")
@@ -129,25 +87,25 @@ class DetailViewController: UIViewController {
 
     func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: URLAuthenticationChallenge){
 
-        print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
+      print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
 
-        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
-            print("send credential Server Trust")
-            let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-            challenge.sender!.use(credential, for: challenge)
+      if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
+          print("send credential Server Trust")
+          let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+          challenge.sender!.use(credential, for: challenge)
 
-        }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
-            print("send credential HTTP Basic")
-            let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
-            challenge.sender!.use(defaultCredentials, for: challenge)
+      }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
+          print("send credential HTTP Basic")
+          let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
+          challenge.sender!.use(defaultCredentials, for: challenge)
 
-        }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
-            print("send credential NTLM")
+      }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
+          print("send credential NTLM")
 
-        } else{
-            challenge.sender!.performDefaultHandling!(for: challenge)
-        }
-    }
+      } else{
+          challenge.sender!.performDefaultHandling!(for: challenge)
+      }
+  }
     
     @IBAction func moreButton(_ sender: AnyObject) {
 
