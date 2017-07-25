@@ -10,8 +10,6 @@
 		0C6909AD56F974AD92634279 /* Pods_itunes_lookupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAF63771F17AD2E02A36424 /* Pods_itunes_lookupTests.framework */; };
 		14D148F095903F47F7905339 /* Pods_itunes_lookup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2053B0273BFABAD18FFBD6D /* Pods_itunes_lookup.framework */; };
 		2091A887B8172C1FCA531474 /* Pods_itunes_lookupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3908439CFC046AA90E4C3E46 /* Pods_itunes_lookupUITests.framework */; };
-		2E0397911DAB206200F03ED3 /* DevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0397901DAB206200F03ED3 /* DevViewController.swift */; };
-		2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */; };
 		2E0397DF1DAC89A300F03ED3 /* SF-UI-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397D11DAC89A300F03ED3 /* SF-UI-Text-Bold.otf */; };
 		2E0397E01DAC89A300F03ED3 /* SF-UI-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397D21DAC89A300F03ED3 /* SF-UI-Text-BoldItalic.otf */; };
 		2E0397E11DAC89A300F03ED3 /* SF-UI-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2E0397D31DAC89A300F03ED3 /* SF-UI-Text-Heavy.otf */; };
@@ -74,8 +72,6 @@
 
 /* Begin PBXFileReference section */
 		10EF414C3E24A8CB6D9B95FD /* Pods-itunes_lookupUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-itunes_lookupUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-itunes_lookupUITests/Pods-itunes_lookupUITests.release.xcconfig"; sourceTree = "<group>"; };
-		2E0397901DAB206200F03ED3 /* DevViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevViewController.swift; sourceTree = "<group>"; };
-		2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevDetailViewController.swift; sourceTree = "<group>"; };
 		2E0397D11DAC89A300F03ED3 /* SF-UI-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Bold.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-Bold.otf"; sourceTree = "<group>"; };
 		2E0397D21DAC89A300F03ED3 /* SF-UI-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-BoldItalic.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-BoldItalic.otf"; sourceTree = "<group>"; };
 		2E0397D31DAC89A300F03ED3 /* SF-UI-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Heavy.otf"; path = "../../../../../Downloads/SF UI 3/SF-UI-Text/SF-UI-Text-Heavy.otf"; sourceTree = "<group>"; };
@@ -213,8 +209,6 @@
 			children = (
 				2E2CFBDC1D51D62C00520726 /* SearchVC.swift */,
 				2E2C27FC1D6C38D700C6A1E3 /* DetailViewController.swift */,
-				2E0397901DAB206200F03ED3 /* DevViewController.swift */,
-				2E0397921DAB29A400F03ED3 /* DevDetailViewController.swift */,
 				2EF227A51EF8F9BD00089E11 /* CustomTableCell.swift */,
 				2EF227A71F035F2400089E11 /* BookMarkedVC.swift */,
 				2E761E651F111DD800AF393B /* DetailBookMarkedVC.swift */,
@@ -624,7 +618,6 @@
 				2E2C27F51D6423B200C6A1E3 /* Client.swift in Sources */,
 				2EF227A81F035F2400089E11 /* BookMarkedVC.swift in Sources */,
 				2E2C27F91D644D7700C6A1E3 /* SearchResultsObject.swift in Sources */,
-				2E0397911DAB206200F03ED3 /* DevViewController.swift in Sources */,
 				2E2CFBE31D51D62C00520726 /* itunes_lookup.xcdatamodeld in Sources */,
 				2E761E5B1F0E491B00AF393B /* App+CoreDataProperties.swift in Sources */,
 				2E28423F1D92486D00EF68D6 /* Reachability.swift in Sources */,
@@ -633,7 +626,6 @@
 				2E2CFBDB1D51D62C00520726 /* AppDelegate.swift in Sources */,
 				2EF227A61EF8F9BD00089E11 /* CustomTableCell.swift in Sources */,
 				2E761E661F111DD800AF393B /* DetailBookMarkedVC.swift in Sources */,
-				2E0397931DAB29A400F03ED3 /* DevDetailViewController.swift in Sources */,
 				2E2842441D9277F200EF68D6 /* Validation.swift in Sources */,
 				2E2C27F11D64237900C6A1E3 /* BlackBox.swift in Sources */,
 			);

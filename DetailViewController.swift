@@ -162,11 +162,18 @@ class DetailViewController: UIViewController {
     }
 
   @IBAction func markButton(_ sender: Any) {
+
     print("markButton")
+    let shareDict = SearchResultsStore.sharedInstance().searchResults
+    print(shareDict)
 
-    markAlertGeneral(title: "Bookmark this app?", message: "", actionTitle: "Mark it!", cancelTitle: "Cancel")
+    if App.coreAppWithNetworkInfo(appInfo: navigationItem.title!, inManagedObjectContext: appDelegate.stack.context) == 0 {
 
-
+      markAlertGeneral(title: "Bookmark this app?", message: "", actionTitle: "Mark it!", cancelTitle: "Cancel")
+    } else {
+      alreadyGotAlert(title: "You already got this one!", message: "Check your bookmark list", cancelTitle: "Got it")
+      print("alert")
+    }
   }
 
     @IBAction func shareButton(_ sender: AnyObject) {
@@ -238,5 +245,17 @@ extension DetailViewController {
       markAlertGeneral.addAction(actionTitle)
       markAlertGeneral.addAction(cancelTitle)
       self.present(markAlertGeneral, animated: true, completion: nil)
+  }
+
+  func alreadyGotAlert(title: String, message: String, cancelTitle: String) {
+
+    let markAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+
+    let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {
+
+      (cancelTitle: UIAlertAction!) in print("Got it")
+    })
+    markAlertGeneral.addAction(cancelTitle)
+    self.present(markAlertGeneral, animated: true, completion: nil)
   }
 }

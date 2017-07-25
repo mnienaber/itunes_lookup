@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 public class App: NSManagedObject {
 
@@ -28,4 +29,26 @@ public class App: NSManagedObject {
       fatalError("Unable to find Entity name!")
     }
   }
+
+  class func coreAppWithNetworkInfo(appInfo: String, inManagedObjectContext context: NSManagedObjectContext) -> Int {
+    print(appInfo)
+
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    var result = Int()
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "App")
+    request.predicate = NSPredicate(format: "appName = %@", appInfo as CVarArg)
+
+    do {
+      // Execute Fetch Request
+      print("request: \(request)")
+      let records = try delegate.stack.context.fetch(request)
+      print("records: \(records.count)")
+      result = records.count
+
+    } catch {
+      print("Unable to fetch managed objects for entity.")
+    }
+    return result
+  }
+
 }
