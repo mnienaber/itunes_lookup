@@ -14,6 +14,8 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var blanket: UIView!
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
   var appDelegate: AppDelegate!
   var searchActive: Bool = false
@@ -28,6 +30,9 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     tableView.dataSource = self
     searchBar.isFirstResponder
     appDelegate = UIApplication.shared.delegate as! AppDelegate
+    blanket.isHidden = true
+    activityIndicator.isHidden = true
+
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -40,12 +45,22 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
   func testApi(_ searchText: String) {
 
+    self.blanket.isHidden = false
+    self.activityIndicator.isHidden = false
+    self.activityIndicator.startAnimating()
+
     let plusInsert = searchText.components(separatedBy: " ")
     let realSearchText = plusInsert.joined(separator: "+")
 
     print(realSearchText)
 
     Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
+
+      performUIUpdatesOnMain {
+        self.blanket.isHidden = true
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+      }
 
       if error != nil {
 

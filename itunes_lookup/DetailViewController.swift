@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
 
   @IBOutlet weak var admobAd: GADBannerView!
 
+  @IBOutlet weak var markButtonOutlet: UIButton!
   @IBOutlet weak var devLabel: UILabel!
   @IBOutlet weak var artistNameText: UITextField!
   @IBOutlet weak var bundleIdText: UITextField!
@@ -61,6 +62,7 @@ class DetailViewController: UIViewController {
   }
 
     override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(true)
 
       if let object = searchObject {
 
@@ -77,6 +79,12 @@ class DetailViewController: UIViewController {
         fileSizeBytes.text = String(describing: fsize) + "mb"
         descripTion.text = object.description as? String
         navigationItem.title = object.trackName as? String
+      }
+
+      if App.coreAppWithNetworkInfo(appInfo: navigationItem.title!, inManagedObjectContext: appDelegate.stack.context) == 0 {
+        markButtonOutlet.setTitle("Mark", for: .normal)
+      } else {
+        markButtonOutlet.setTitle("You got this!", for: .normal)
       }
   }
 
@@ -128,19 +136,14 @@ class DetailViewController: UIViewController {
     if App.coreAppWithNetworkInfo(appInfo: navigationItem.title!, inManagedObjectContext: appDelegate.stack.context) == 0 {
 
       markAlertGeneral(title: "Bookmark this app?", message: "", actionTitle: "Mark it!", cancelTitle: "Cancel")
+      markButtonOutlet.setTitle("Saved!", for: .normal)
+
     } else {
       alreadyGotAlert(title: "You already got this one!", message: "Check your bookmark list", cancelTitle: "Got it")
+      markButtonOutlet.setTitle("Saved!", for: .normal)
       print("alert")
     }
   }
-
-    @IBAction func shareButton(_ sender: AnyObject) {
-
-      let shareDict = SearchResultsStore.sharedInstance().searchResults
-
-      let activityView = UIActivityViewController(activityItems: [shareDict], applicationActivities: nil)
-      self.present(activityView, animated: true, completion: nil)
-    }
 
     func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
 

@@ -26,6 +26,13 @@ class FailAlerts: UIViewController {
     failLoginAlert.addAction(UIAlertAction(title: alerttitle, style: UIAlertActionStyle.default, handler: nil))
     self.present(failLoginAlert, animated: true, completion: nil)
   }
+
+  func failAlertGeneral(title: String, message: String, actionTitle: String) {
+
+    let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+    failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
+    self.present(failAlertGeneral, animated: true, completion: nil)
+  }
 }
 
 extension FailAlerts {
