@@ -45,42 +45,49 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
   func testApi(_ searchText: String) {
 
-    self.blanket.isHidden = false
-    self.activityIndicator.isHidden = false
-    self.activityIndicator.startAnimating()
+    if Reachability.connectedToNetwork() == false {
 
-    let plusInsert = searchText.components(separatedBy: " ")
-    let realSearchText = plusInsert.joined(separator: "+")
+//      FailAlerts.sharedInstance().failSmallOK(title: "No Connection", message: "You don't seem to be connected to the internet", alerttitle: "I'll fix it!")
+      alreadyGotAlert(title: "No Connection", message: "You don't seem to be connected to the internet", cancelTitle: "I'll fix it!")
+    } else {
 
-    print(realSearchText)
+      self.blanket.isHidden = false
+      self.activityIndicator.isHidden = false
+      self.activityIndicator.startAnimating()
 
-    Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
+      let plusInsert = searchText.components(separatedBy: " ")
+      let realSearchText = plusInsert.joined(separator: "+")
 
-      performUIUpdatesOnMain {
-        self.blanket.isHidden = true
-        self.activityIndicator.isHidden = true
-        self.activityIndicator.stopAnimating()
-      }
+      print(realSearchText)
 
-      if error != nil {
+      Client.sharedInstance().getSearchItems(realSearchText) { (searchResultsDict, error) in
 
-          self.failAlertGeneral(title: "Error", message: "Seems to be an error with your query", actionTitle: "Try Again")
-      } else if searchResultsDict?.count == 0 {
+        performUIUpdatesOnMain {
+          self.blanket.isHidden = true
+          self.activityIndicator.isHidden = true
+          self.activityIndicator.stopAnimating()
+        }
 
-          self.failAlertGeneral(title: "No Results", message: "That Was Unique! Try Another Search Term", actionTitle: "OK")
-      } else {
+        if error != nil {
+          
+          self.alreadyGotAlert(title: "Error", message: "Seems to be an error with your query", cancelTitle: "Try Again")
+        } else if searchResultsDict?.count == 0 {
 
-        if let searchResultsDict = searchResultsDict {
+          self.alreadyGotAlert(title: "No Results", message: "That Was Unique! Try Another Search Term", cancelTitle: "OK")
+        } else {
 
-          performUIUpdatesOnMain {
+          if let searchResultsDict = searchResultsDict {
 
-            for _ in SearchResultsStore.sharedInstance().searchResults {
+            performUIUpdatesOnMain {
+
+              for _ in SearchResultsStore.sharedInstance().searchResults {
 
                 DispatchQueue.main.async(execute: { () -> Void in
-                    self.tableView.reloadData()
+                  self.tableView.reloadData()
                 })
+              }
+              self.tableView.reloadData()
             }
-            self.tableView.reloadData()
           }
         }
       }
@@ -126,7 +133,15 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     searchBar.resignFirstResponder()
 
     let searchText = searchBar.text!
+    if Reachability.connectedToNetwork() == false {
+
+      performUIUpdatesOnMain {
+        self.alreadyGotAlert(title: "No Connection", message: "You don't seem to be connected to the internet", cancelTitle: "I'll fix it!")
+      }
+      print("no connection")
+    } else {
     testApi(searchText)
+    }
     self.tableView.reloadData()
   }
 
@@ -137,16 +152,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
   }
 }
 
-extension ViewController {
+extension UIViewController {
 
-  func failAlertGeneral(title: String, message: String, actionTitle: String) {
+  func alreadyGotAlert(title: String, message: String, cancelTitle: String) {
 
-    let failAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-    failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
-    self.present(failAlertGeneral, animated: true, completion: nil)
+    let markAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+
+    let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {
+
+      (cancelTitle: UIAlertAction!) in print("Got it")
+    })
+    markAlertGeneral.addAction(cancelTitle)
+    self.present(markAlertGeneral, animated: true, completion: nil)
   }
 }
-
-
 
 

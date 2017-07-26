@@ -47,85 +47,95 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var sellerName: UITextField!
   @IBOutlet weak var imageView: UIImageView!
 
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      activityIndicator.isHidden = false
-      activityIndicator.startAnimating()
-      self.automaticallyAdjustsScrollViewInsets = false
-      appDelegate = UIApplication.shared.delegate as! AppDelegate
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    activityIndicator.isHidden = false
+    activityIndicator.startAnimating()
+    self.automaticallyAdjustsScrollViewInsets = false
+    appDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    if Reachability.connectedToNetwork() == false {
+
+      activityIndicator.isHidden = true
+      activityIndicator.stopAnimating()
+
+      performUIUpdatesOnMain {
+        self.alreadyGotAlert(title: "No Connection", message: "You don't seem to be connected to the internet", cancelTitle: "I'll fix it!")
+      }
+      print("no connection")
+    } else {
       if let checkedUrl = URL(string: (searchObject?.artworkUrl60Text as? String)!) {
 
-          imageView.contentMode = .scaleAspectFit
-          downloadImage(url: checkedUrl)
+        imageView.contentMode = .scaleAspectFit
+        downloadImage(url: checkedUrl)
       }
+    }
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
 
-    override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(true)
+    if let object = searchObject {
 
-      if let object = searchObject {
+      shareableObject = [object]
 
-        shareableObject = [object]
-
-        artistNameText.isEnabled = false
-        fileSizeBytes.isEnabled = false
-        formattedPriceText.isEnabled = false//
-        artistNameText.text = object.artistName as? String
-          trackIdText = object.trackId.description
-        formattedPriceText.text = object.formattedPrice as? String
-        averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description + "\u{2b50}"
-        let fsize = ((object.fileSizeBytes).integerValue) / 1000000
-        fileSizeBytes.text = String(describing: fsize) + "mb"
-        descripTion.text = object.description as? String
-        navigationItem.title = object.trackName as? String
-      }
-
-      if App.coreAppWithNetworkInfo(appInfo: navigationItem.title!, inManagedObjectContext: appDelegate.stack.context) == 0 {
-        markButtonOutlet.setTitle("Mark", for: .normal)
-      } else {
-        markButtonOutlet.setTitle("You got this!", for: .normal)
-      }
-  }
-
-    func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
-        print("canAuthenticateAgainstProtectionSpace method Returning True")
-        return true
+      artistNameText.isEnabled = false
+      fileSizeBytes.isEnabled = false
+      formattedPriceText.isEnabled = false
+      artistNameText.text = object.artistName as? String
+        trackIdText = object.trackId.description
+      formattedPriceText.text = object.formattedPrice as? String
+      averageUserRatingForCurrentVersion.text = object.averageUserRatingForCurrentVersion.description + "\u{2b50}"
+      let fsize = ((object.fileSizeBytes).integerValue) / 1000000
+      fileSizeBytes.text = String(describing: fsize) + "mb"
+      descripTion.text = object.description as? String
+      navigationItem.title = object.trackName as? String
     }
 
-    func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: URLAuthenticationChallenge){
+    if App.coreAppWithNetworkInfo(appInfo: navigationItem.title!, inManagedObjectContext: appDelegate.stack.context) == 0 {
+      markButtonOutlet.setTitle("Mark", for: .normal)
+    } else {
+      markButtonOutlet.setTitle("You got this!", for: .normal)
+    }
+  }
 
-      print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
+  func connection(connection: NSURLConnection, canAuthenticateAgainstProtectionSpace protectionSpace: URLProtectionSpace) -> Bool{
+      print("canAuthenticateAgainstProtectionSpace method Returning True")
+      return true
+  }
 
-      if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
-          print("send credential Server Trust")
-          let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-          challenge.sender!.use(credential, for: challenge)
+  func connection(connection: NSURLConnection, didReceiveAuthenticationChallenge challenge: URLAuthenticationChallenge){
 
-      }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
-          print("send credential HTTP Basic")
-          let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
-          challenge.sender!.use(defaultCredentials, for: challenge)
+    print("did autherntcationchallenge = \(challenge.protectionSpace.authenticationMethod)")
 
-      }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
-          print("send credential NTLM")
+    if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust  {
+        print("send credential Server Trust")
+        let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+        challenge.sender!.use(credential, for: challenge)
 
-      } else{
-          challenge.sender!.performDefaultHandling!(for: challenge)
-      }
+    }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic{
+        print("send credential HTTP Basic")
+        let defaultCredentials: URLCredential = URLCredential(user: "username", password: "password", persistence:URLCredential.Persistence.forSession)
+        challenge.sender!.use(defaultCredentials, for: challenge)
+
+    }else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodNTLM{
+        print("send credential NTLM")
+
+    } else{
+        challenge.sender!.performDefaultHandling!(for: challenge)
+    }
   }
     
-    @IBAction func moreButton(_ sender: AnyObject) {
+  @IBAction func moreButton(_ sender: AnyObject) {
 
-      let app = UIApplication.shared
-      app.openURL(NSURL(string: Client.Constants.Scheme.GoToApp + trackIdText)! as URL)
-      print("off to iTunes")
-    }
+    let app = UIApplication.shared
+    app.openURL(NSURL(string: Client.Constants.Scheme.GoToApp + trackIdText)! as URL)
+    print("off to iTunes")
+  }
 
-    @IBAction func backButton(_ sender: AnyObject) {
+  @IBAction func backButton(_ sender: AnyObject) {
 
-        self.navigationController?.popViewController(animated: true)
-    }
+      self.navigationController?.popViewController(animated: true)
+  }
 
   @IBAction func markButton(_ sender: Any) {
 
@@ -145,35 +155,34 @@ class DetailViewController: UIViewController {
     }
   }
 
-    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+  func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
 
-        URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            completion(data, response, error)
-            }.resume()
-    }
+      URLSession.shared.dataTask(with: url) {
+          (data, response, error) in
+          completion(data, response, error)
+          }.resume()
+  }
 
-    func downloadImage(url: URL) {
-        print("Download Started")
-      let urlRequest = NSURLRequest(url: url)
-      let _ : NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
-      getDataFromUrl(url: url) { (data, response, error)  in
+  func downloadImage(url: URL) {
+      print("Download Started")
+    let urlRequest = NSURLRequest(url: url)
+    let _ : NSURLConnection = NSURLConnection(request: urlRequest as URLRequest, delegate: self)!
+    getDataFromUrl(url: url) { (data, response, error)  in
 
-        DispatchQueue.main.sync() { () -> Void in
-          print("starting")
-          guard let data = data, error == nil else { return }
-          print("ongoing")
-          print(response?.suggestedFilename ?? url.lastPathComponent)
-          print("Download Finished")
-          self.activityIndicator.isHidden = true
-          self.activityIndicator.stopAnimating()
-          self.image = data
-          self.imageView.image = UIImage(data: self.image)
-        }
-
+      DispatchQueue.main.sync() { () -> Void in
+        print("starting")
+        guard let data = data, error == nil else { return }
+        print("ongoing")
+        print(response?.suggestedFilename ?? url.lastPathComponent)
+        print("Download Finished")
+        self.activityIndicator.isHidden = true
+        self.activityIndicator.stopAnimating()
+        self.image = data
+        self.imageView.image = UIImage(data: self.image)
       }
-    }
 
+    }
+  }
 }
 
 extension DetailViewController {
@@ -208,7 +217,7 @@ extension DetailViewController {
       self.present(markAlertGeneral, animated: true, completion: nil)
   }
 
-  func alreadyGotAlert(title: String, message: String, cancelTitle: String) {
+  override func alreadyGotAlert(title: String, message: String, cancelTitle: String) {
 
     let markAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
 
@@ -220,3 +229,5 @@ extension DetailViewController {
     self.present(markAlertGeneral, animated: true, completion: nil)
   }
 }
+
+

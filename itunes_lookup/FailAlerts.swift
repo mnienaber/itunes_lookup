@@ -33,6 +33,19 @@ class FailAlerts: UIViewController {
     failAlertGeneral.addAction(UIAlertAction(title: actionTitle, style: UIAlertActionStyle.default, handler: nil))
     self.present(failAlertGeneral, animated: true, completion: nil)
   }
+
+//  func alreadyGotAlert(title: String, message: String, cancelTitle: String) {
+//
+//    print("here i am")
+//
+//    let markAlertGeneral = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+//    let cancelTitle = UIAlertAction(title: cancelTitle, style: UIAlertActionStyle.default, handler: {
+//
+//      (cancelTitle: UIAlertAction!) in print("Got it")
+//    })
+//    markAlertGeneral.addAction(cancelTitle)
+//    self.present(markAlertGeneral, animated: true, completion: nil)
+//  }
 }
 
 extension FailAlerts {
