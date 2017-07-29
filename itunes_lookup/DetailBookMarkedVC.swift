@@ -28,17 +28,20 @@ class DetailBookMarkedVC: UIViewController {
     super.viewDidLoad()
 
     let app = Client.sharedInstance().segueApp.first
-    print(app!)
     descriptionText.text = (app?.descriptionText!)!
-    imageView.image = UIImage(data: (app?.image!)!)
     let fsize = ((app?.fileSize)?.integerValue)! / 1000000
     size.text = String(describing: fsize) + "mb"
     price.text = app?.price
     rating.text = (app?.rating?.description)! + "\u{2b50}"
     artistNameText.text = app?.appName
     activityIndicator.isHidden = true
-    }
 
+    if app?.image == nil {
+      imageView.image = UIImage(named: "Image")
+    } else {
+      self.imageView.image = UIImage(data: (app?.image)!)
+    }
+  }
 
   override func viewWillAppear(_ animated: Bool) {
     artistNameText.isEnabled = false

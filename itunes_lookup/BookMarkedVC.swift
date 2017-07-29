@@ -35,9 +35,6 @@ class BookMarkedVC: CoreDataTableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "App", for: indexPath)
 
     cell.textLabel?.text = app.appName
-    //TODO: insert icon image without crashing
-    //cell.imageView?.image = UIImage(data: app.image!)
-
 
     return cell
   }
@@ -48,7 +45,6 @@ class BookMarkedVC: CoreDataTableViewController {
     print("didselect_segueApp:  \(segueApp)")
     Client.sharedInstance().segueApp.removeAll()
     Client.sharedInstance().segueApp = [segueApp]
-//    performSegue(withIdentifier: "segue", sender: self)
     print(Client.sharedInstance().segueApp)
 
   }

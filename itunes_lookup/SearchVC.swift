@@ -47,7 +47,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
 
     if Reachability.connectedToNetwork() == false {
 
-//      FailAlerts.sharedInstance().failSmallOK(title: "No Connection", message: "You don't seem to be connected to the internet", alerttitle: "I'll fix it!")
       alreadyGotAlert(title: "No Connection", message: "You don't seem to be connected to the internet", cancelTitle: "I'll fix it!")
     } else {
 
@@ -100,13 +99,19 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    self.tableView.rowHeight = UITableViewAutomaticDimension
+    self.tableView.estimatedRowHeight = 100.0
+
     let cellIdentifier = "cell"
 
     let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier)! as! CustomTableCell
     let obj = SearchResultsStore.sharedInstance().searchResults[(indexPath as NSIndexPath).row]
     cell.detailLabel?.textAlignment = NSTextAlignment.right
     cell.mainLabel?.textAlignment = NSTextAlignment.left
+    cell.mainLabel?.adjustsFontSizeToFitWidth = true
     cell.mainLabel!.text = obj.trackName as? String
+
     if obj.kind as! String == "software" {
 
       cell.detailLabel?.text = "app"
@@ -114,10 +119,6 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     cell.iconImage.image = UIImage(named: "image")
 
     return cell
-  }
-
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
   }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
