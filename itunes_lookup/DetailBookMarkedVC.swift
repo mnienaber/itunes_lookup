@@ -37,7 +37,7 @@ class DetailBookMarkedVC: UIViewController {
     activityIndicator.isHidden = true
 
     if app?.image == nil {
-      imageView.image = UIImage(named: "Image")
+      imageView.image = UIImage(named: "no_image_placeholder")
     } else {
       self.imageView.image = UIImage(data: (app?.image)!)
     }
