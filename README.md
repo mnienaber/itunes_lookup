@@ -3,8 +3,8 @@ Looking for an extremely lightweight iTunes App Store? Use this lightening fast 
 
 User experience flow:
 
-1. Tap in the search bar to activate the keyboard - type in a search term or name of the app of interest
-2. In a table view, the results from Apple's servers will be displayed in a text list of app names
+*. Tap in the search bar to activate the keyboard - type in a search term or name of the app of interest
+*. In a table view, the results from Apple's servers will be displayed in a text list of app names
 3. Tap on the item you are interested in
 4. In the detail view, the following information is displayed: App name in navigation bar, app icon, developer name, rating, price, download size in megabytes and the full app description.
 5. Tap "iTunes" button to go directly to the app store download page
