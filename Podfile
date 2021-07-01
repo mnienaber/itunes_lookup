@@ -4,7 +4,7 @@ target 'itunes_lookup' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for itunes_lookup
+  # Pods for itunes_lookup for clean
 pod 'Firebase'
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
