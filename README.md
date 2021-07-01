@@ -15,4 +15,4 @@ User experience flow:
 
 The idea for this app came from the frustration of the heaviness, and bloated sluggishness of the current iTunes App Store - for maximum speed, heavy elements have been avoided.
 
-Enjoy!
+Enjoy.
