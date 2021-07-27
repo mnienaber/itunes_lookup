@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import itunes_lookup
-@testable import Firebase
 
 class itunes_lookupTests: XCTestCase {
     
