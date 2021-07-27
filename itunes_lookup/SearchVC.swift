@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import GoogleMobileAds
 
 class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -29,7 +27,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
     tableView.delegate = self
     tableView.dataSource = self
     searchBar.isFirstResponder
-    appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate = UIApplication.shared.delegate as? AppDelegate
     blanket.isHidden = true
     activityIndicator.isHidden = true
 
@@ -75,7 +73,7 @@ class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate
           self.alreadyGotAlert(title: "No Results", message: "That Was Unique! Try Another Search Term", cancelTitle: "OK")
         } else {
 
-          if let searchResultsDict = searchResultsDict {
+            if searchResultsDict != nil {
 
             performUIUpdatesOnMain {
 

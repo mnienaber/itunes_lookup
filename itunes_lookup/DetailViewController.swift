@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import GoogleMobileAds
 import CoreData
 
 class DetailViewController: UIViewController {
@@ -20,7 +19,7 @@ class DetailViewController: UIViewController {
   var image = Data()
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-  @IBOutlet weak var admobAd: GADBannerView!
+//  @IBOutlet weak var admobAd: GADBannerView!
 
   @IBOutlet weak var markButtonOutlet: UIButton!
   @IBOutlet weak var devLabel: UILabel!
